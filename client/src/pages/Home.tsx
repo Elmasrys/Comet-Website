@@ -49,37 +49,38 @@ export default function Home() {
   }
 
   return (
-    <div className="space-y-24 pb-24">
+    <div className="space-y-32">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center">
-        <div 
-          className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"
-          style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1497366811353-6870744d04b2)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.1
-          }}
-        />
-        <div className="container mx-auto px-4 relative">
+      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-primary/5 to-transparent">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/40" />
+        </div>
+        <div className="container mx-auto px-4 relative text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Welcome to Comet: The Future of Real Estate Technology
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              The Future of Real Estate Technology
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Transforming property management with innovative digital solutions.
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+              Transform your property management with cutting-edge solutions designed for the modern real estate industry.
             </p>
-            <Link href="#demo">
-              <Button size="lg" className="text-lg">
-                Get Started
-                <ArrowRight className="ml-2" />
-              </Button>
-            </Link>
+            <div className="flex items-center justify-center gap-4">
+              <Link href="#demo">
+                <Button size="lg" className="text-lg px-8">
+                  Get Started
+                  <ArrowRight className="ml-2" />
+                </Button>
+              </Link>
+              <Link href="#about">
+                <Button size="lg" variant="outline" className="text-lg px-8">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -107,171 +108,234 @@ export default function Home() {
 
       {/* Solutions */}
       <section className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Solutions</h2>
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold mb-4"
+          >
+            Solutions for Every Need
+          </motion.h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore our comprehensive suite of property management solutions.
+          </p>
+        </div>
         <div className="grid md:grid-cols-3 gap-8">
-          <Card>
-            <CardContent className="pt-6">
-              <Building2 className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Residential</h3>
-              <p className="text-gray-600 mb-4">
-                Community app for modern residential property management.
-              </p>
-              <Link href="/residential">
-                <Button variant="outline" className="w-full">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <Building2 className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-semibold mb-2">Residential</h3>
+                <p className="text-gray-600 mb-6">
+                  Community app for modern residential property management.
+                </p>
+                <Link href="/residential">
+                  <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <Card>
-            <CardContent className="pt-6">
-              <Users className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Sports</h3>
-              <p className="text-gray-600 mb-4">
-                Comprehensive club management and member engagement platform.
-              </p>
-              <Link href="/sports">
-                <Button variant="outline" className="w-full">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <Users className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-semibold mb-2">Sports</h3>
+                <p className="text-gray-600 mb-6">
+                  Comprehensive club management and member engagement platform.
+                </p>
+                <Link href="/sports">
+                  <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <Card>
-            <CardContent className="pt-6">
-              <Building className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Commercial</h3>
-              <p className="text-gray-600 mb-4">
-                Smart solutions for coworking spaces and commercial properties.
-              </p>
-              <Link href="/commercial">
-                <Button variant="outline" className="w-full">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <Building className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-semibold mb-2">Commercial</h3>
+                <p className="text-gray-600 mb-6">
+                  Smart solutions for coworking spaces and commercial properties.
+                </p>
+                <Link href="/commercial">
+                  <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
       {/* Benefits */}
       <section className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Choose Comet?</h2>
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold mb-4"
+          >
+            Why Choose Comet?
+          </motion.h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Experience the advantages of our cutting-edge platform
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <Card>
-            <CardContent className="pt-6">
-              <CheckCircle className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Seamless Integration</h3>
-              <p className="text-sm text-gray-600">
-                Easily integrate with your existing systems and workflows.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <Scale className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Scalability</h3>
-              <p className="text-sm text-gray-600">
-                Grow with confidence using our scalable solutions.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <Zap className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Innovation-Driven</h3>
-              <p className="text-sm text-gray-600">
-                Stay ahead with cutting-edge technology and features.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <UserCircle className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">User-Centric Design</h3>
-              <p className="text-sm text-gray-600">
-                Intuitive interfaces designed for the best user experience.
-              </p>
-            </CardContent>
-          </Card>
+          {[
+            {
+              icon: CheckCircle,
+              title: "Seamless Integration",
+              description: "Easily integrate with your existing systems and workflows."
+            },
+            {
+              icon: Scale,
+              title: "Scalability",
+              description: "Grow with confidence using our scalable solutions."
+            },
+            {
+              icon: Zap,
+              title: "Innovation-Driven",
+              description: "Stay ahead with cutting-edge technology and features."
+            },
+            {
+              icon: UserCircle,
+              title: "User-Centric Design",
+              description: "Intuitive interfaces designed for the best user experience."
+            }
+          ].map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <Card className="h-full group hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6">
+                  <benefit.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-gray-600">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="container mx-auto px-4">
+      <section id="contact" className="container mx-auto px-4 pb-32">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Get in Touch</h2>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl font-bold mb-4"
+            >
+              Get in Touch
+            </motion.h2>
+            <p className="text-lg text-gray-600">
+              Ready to transform your property management? Let's talk.
+            </p>
+          </div>
+          <Card>
+            <CardContent className="pt-6">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="your@email.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="your@email.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="businessType"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Business Type</FormLabel>
-                    <FormControl>
-                      <Input placeholder="e.g. Residential, Commercial, Sports" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="businessType"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Business Type</FormLabel>
+                        <FormControl>
+                          <Input placeholder="e.g. Residential, Commercial, Sports" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="How can we help?" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Message</FormLabel>
+                        <FormControl>
+                          <Textarea placeholder="How can we help?" className="min-h-[120px]" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-            </form>
-          </Form>
+                  <Button type="submit" className="w-full">
+                    Send Message
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
