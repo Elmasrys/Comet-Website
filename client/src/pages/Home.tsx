@@ -51,36 +51,93 @@ export default function Home() {
   return (
     <div className="space-y-32">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-[hsl(var(--brand-navy)_/_5%)] to-transparent">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/40" />
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[hsl(var(--brand-navy)_/_2%)]">
+          <div className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--brand-navy) / 0.1) 1px, transparent 0)',
+              backgroundSize: '40px 40px'
+            }}
+          />
         </div>
-        <div className="container mx-auto px-4 relative text-center">
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient-brand">
-              Redefining Real Estate Operations
-            </h1>
-            <p className="text-xl text-[hsl(var(--brand-navy)_/_80%)] mb-12 max-w-3xl mx-auto">
+            {/* Accent Line */}
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "80px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="h-1 bg-[hsl(var(--brand-gold))] mx-auto mb-8"
+            />
+
+            {/* Main Title */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h1 className="text-6xl md:text-7xl font-bold mb-6">
+                <span className="text-gradient-accent">Redefining</span>{" "}
+                <span className="text-[hsl(var(--brand-navy))]">Real Estate</span>{" "}
+                <span className="text-[hsl(var(--brand-navy))]">Operations</span>
+              </h1>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl text-[hsl(var(--brand-navy)_/_80%)] mb-12 max-w-3xl mx-auto"
+            >
               Comet is more than just a technology company—it's a movement to redefine how real estate operates, building an interconnected ecosystem where every solution seamlessly integrates.
-            </p>
-            <div className="flex items-center justify-center gap-4">
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
               <Link href="#demo">
-                <Button size="lg" className="text-lg px-8 bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white">
+                <Button size="lg" className="text-lg px-8 bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white min-w-[200px]">
                   Get Started
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <Link href="#about">
-                <Button size="lg" variant="outline" className="text-lg px-8 border-[hsl(var(--brand-gold))] text-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_10%)]">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 border-[hsl(var(--brand-gold))] text-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_10%)] min-w-[200px]"
+                >
                   Learn More
                 </Button>
               </Link>
-            </div>
+            </motion.div>
+
+            {/* Decorative Elements */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="absolute top-1/2 -translate-y-1/2 left-0 w-48 h-48 bg-[hsl(var(--brand-gold)_/_5%)] rounded-full blur-3xl"
+            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+              className="absolute top-1/2 -translate-y-1/2 right-0 w-48 h-48 bg-[hsl(var(--brand-navy)_/_5%)] rounded-full blur-3xl"
+            />
           </motion.div>
         </div>
       </section>
