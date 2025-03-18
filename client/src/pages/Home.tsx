@@ -195,16 +195,16 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card 
+              <Card
                 className={`h-full hover:shadow-lg transition-all cursor-pointer ${
-                  selectedTile === solution.title.toLowerCase() 
-                    ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]' 
+                  selectedTile === solution.title.toLowerCase()
+                    ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]'
                     : 'hover:bg-[hsl(var(--brand-navy)_/_5%)]'
                 }`}
                 onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}
               >
                 <CardContent className="p-6">
-                  <solution.icon 
+                  <solution.icon
                     className={`h-12 w-12 mb-4 transition-colors ${
                       selectedTile === solution.title.toLowerCase()
                         ? 'text-[hsl(var(--brand-gold))]'
@@ -255,6 +255,92 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+      </section>
+
+      {/* Membership Management Section */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
+          >
+            Membership Management
+          </motion.h2>
+          <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+            Increase your retention rate and skyrocket your member acquisition by automating your processes, expanding your reach and establishing a culture of engagement.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <div className="flex flex-wrap gap-4">
+              {[
+                { label: "Customizable Renewal Flows", icon: ArrowRight },
+                { label: "Automatic Reminders", icon: BellRing },
+                { label: "Membership Directory", icon: Users },
+                { label: "Recurring Payments", icon: CreditCard }
+              ].map((item, index) => (
+                <div
+                  key={item.label}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(var(--brand-navy)_/_5%)] text-sm font-medium text-[hsl(var(--brand-navy))]"
+                >
+                  <item.icon className="h-4 w-4" />
+                  {item.label}
+                </div>
+              ))}
+            </div>
+
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)]">
+              Streamline your membership operations with our comprehensive suite of tools designed for modern community management.
+            </p>
+
+            <Link href="/learn-more">
+              <Button
+                size="lg"
+                className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
+              >
+                Learn about Membership Software
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative rounded-xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)] p-8"
+          >
+            <div className="grid grid-cols-2 gap-8">
+              <Card className="bg-white">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">Renewal Health Check</h3>
+                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">89%</div>
+                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">RENEWAL RATE</p>
+                  <div className="text-sm mt-2">95 Renewed, 11 Expired</div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">Applications Awaiting Payment</h3>
+                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">$24k</div>
+                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">TOTAL VALUE</p>
+                  <div className="text-sm mt-2">32 Applications Awaiting Payment</div>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Contact Form Section */}
