@@ -1,7 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { SiNvidia } from "react-icons/si";
 
 export function Header() {
   const [location] = useLocation();
@@ -12,9 +11,7 @@ export function Header() {
       <div className="w-full bg-[hsl(var(--brand-navy)_/_5%)] py-2">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-2 text-sm">
-            <span>Comet is using the most advanced enterprise-grade AI</span>
-            <SiNvidia className="h-4 w-4" />
-            <span className="font-medium">NVIDIA Enterprise AI</span>
+            <span>Boost member value and revenue using new Advanced CRM Package.</span>
           </div>
         </div>
       </div>
