@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, CreditCard, Calendar, BarChart, BellRing } from "lucide-react";
+import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, BellRing, CreditCard } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -138,84 +138,23 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right Column - Feature Icons */}
+            {/* Right Column - Image Placeholder */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative grid grid-cols-2 gap-8"
+              className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[hsl(var(--brand-navy)_/_5%)] rounded-full blur-3xl" />
-
-              <Card 
-                className={`bg-white/80 backdrop-blur-sm cursor-pointer transition-all ${selectedTile === 'residential' ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
-                onClick={() => setSelectedTile('residential')}
-              >
-                <CardContent className="p-6">
-                  <Building2 className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">Residential</h3>
-                </CardContent>
-              </Card>
-
-              <Card 
-                className={`bg-white/80 backdrop-blur-sm cursor-pointer transition-all ${selectedTile === 'sports' ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
-                onClick={() => setSelectedTile('sports')}
-              >
-                <CardContent className="p-6">
-                  <Users className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">Sports</h3>
-                </CardContent>
-              </Card>
-
-              <Card 
-                className={`bg-white/80 backdrop-blur-sm cursor-pointer transition-all ${selectedTile === 'commercial' ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
-                onClick={() => setSelectedTile('commercial')}
-              >
-                <CardContent className="p-6">
-                  <Building className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">Commercial</h3>
-                </CardContent>
-              </Card>
+              <div className="absolute inset-0 flex items-center justify-center text-[hsl(var(--brand-navy)_/_20%)]">
+                Platform Preview Image
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Selected Features Section */}
-      <AnimatePresence mode="wait">
-        {selectedTile && (
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="container mx-auto px-4"
-          >
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-[hsl(var(--brand-navy))]">
-                {features[selectedTile].title}
-              </h2>
-              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] mb-8">
-                {features[selectedTile].description}
-              </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {features[selectedTile].features.map((feature, index) => (
-                  <Card key={index} className="bg-white/80">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-navy))] mt-2" />
-                        <p className="text-[hsl(var(--brand-navy)_/_80%)]">{feature}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </motion.section>
-        )}
-      </AnimatePresence>
-
-      {/* Solutions */}
-      <section className="container mx-auto px-4">
+      {/* Solutions Section */}
+      <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -231,7 +170,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
               icon: Building2,
@@ -256,248 +195,53 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow" onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}>
+              <Card 
+                className={`h-full hover:shadow-lg transition-shadow cursor-pointer ${selectedTile === solution.title.toLowerCase() ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
+                onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}
+              >
                 <CardContent className="p-6">
                   <solution.icon className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4" />
                   <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">{solution.title}</h3>
-                  <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">{solution.description}</p>
-                  {/* Removed Learn More button as details are shown in the new section */}
+                  <p className="text-[hsl(var(--brand-navy)_/_80%)]">{solution.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-      </section>
 
-      {/* Features Section */}
-      <section className="container mx-auto px-4 py-24">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
-          >
-            Membership Management Made Simple
-          </motion.h2>
-          <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-            Increase your retention rate and skyrocket your member acquisition by automating your processes, expanding your reach and establishing a culture of engagement.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
-            <div className="flex flex-wrap gap-4">
-              {[
-                { label: "Customizable Renewal Flows", icon: ArrowRight },
-                { label: "Automatic Reminders", icon: BellRing },
-                { label: "Membership Directory", icon: Users },
-                { label: "Recurring Payments", icon: CreditCard }
-              ].map((item, index) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(var(--brand-navy)_/_5%)] text-sm font-medium text-[hsl(var(--brand-navy))]"
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </div>
-              ))}
-            </div>
-
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)]">
-              Streamline your membership operations with our comprehensive suite of tools designed for modern property management.
-            </p>
-
-            <Button
-              size="lg"
-              className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
-            >
-              Learn about Membership Software
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative rounded-xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)] p-8"
-          >
-            <div className="grid grid-cols-2 gap-8">
-              <Card className="bg-white">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">Renewal Health Check</h3>
-                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">89%</div>
-                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">RENEWAL RATE</p>
-                  <div className="text-sm mt-2">95 Renewed, 11 Expired</div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">Applications Awaiting Payment</h3>
-                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">$24k</div>
-                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">TOTAL VALUE</p>
-                  <div className="text-sm mt-2">32 Applications Pending</div>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Event Management Section */}
-      <section className="container mx-auto px-4 pb-24">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
-          >
-            Event Management
-          </motion.h2>
-          <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-            Create, promote and manage your events end-to-end with just a few clicks. In-person or online, the choice is yours.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
-            <div className="flex flex-wrap gap-4">
-              {[
-                { label: "Branded Event Invitations", icon: Calendar },
-                { label: "Automated Notifications", icon: BellRing },
-                { label: "Social Media Integration", icon: Users },
-                { label: "List Segmentation", icon: BarChart },
-                { label: "Drag & Drop Email Editor", icon: CreditCard }
-              ].map((item, index) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(var(--brand-navy)_/_5%)] text-sm font-medium text-[hsl(var(--brand-navy))]"
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </div>
-              ))}
-            </div>
-
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)]">
-              Create, promote and manage your events end-to-end with just a few clicks. In-person or online, the choice is yours.
-            </p>
-
-            <Button
-              size="lg"
-              className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
-            >
-              Learn about Events Management
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative rounded-xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)] p-8"
-          >
-            <div className="grid grid-cols-2 gap-8">
-              <Card className="bg-white">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">Total Recipients</h3>
-                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">12.1k</div>
-                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">RECIPIENTS</p>
-                  <div className="text-sm mt-2">Event invitations sent</div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">Event Attendance</h3>
-                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">7.5k</div>
-                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">ATTENDEES</p>
-                  <div className="text-sm mt-2">Confirmed attendees</div>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
-          >
-            Why Choose Comet?
-          </motion.h2>
-          <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] max-w-2xl mx-auto">
-            Experience the advantages of our cutting-edge platform
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              icon: Shield,
-              title: "Seamless Integration",
-              description: "Our ecosystem connects every solution for a unified experience."
-            },
-            {
-              icon: Gauge,
-              title: "Scalability",
-              description: "Solutions designed to grow with your business, from small communities to large enterprises."
-            },
-            {
-              icon: Sparkles,
-              title: "Innovation-Driven",
-              description: "We stay ahead of the curve, delivering technology that pushes real estate forward."
-            },
-            {
-              icon: UserCircle,
-              title: "User-Centric Design",
-              description: "Built with simplicity and functionality in mind, ensuring an intuitive user experience."
-            }
-          ].map((feature, index) => (
+        {/* Selected Features Section */}
+        <AnimatePresence mode="wait">
+          {selectedTile && (
             <motion.div
-              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="max-w-4xl mx-auto mt-16"
             >
-              <Card className="h-full group hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <feature.icon className="h-8 w-8 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold mb-2 text-[hsl(var(--brand-navy))]">{feature.title}</h3>
-                  <p className="text-sm text-[hsl(var(--brand-navy)_/_80%)]">{feature.description}</p>
-                </CardContent>
-              </Card>
+              <h2 className="text-3xl font-bold mb-6 text-[hsl(var(--brand-navy))]">
+                {features[selectedTile].title}
+              </h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] mb-8">
+                {features[selectedTile].description}
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {features[selectedTile].features.map((feature, index) => (
+                  <Card key={index} className="bg-white/80">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-navy))] mt-2" />
+                        <p className="text-[hsl(var(--brand-navy)_/_80%)]">{feature}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </motion.div>
-          ))}
-        </div>
+          )}
+        </AnimatePresence>
       </section>
 
-      {/* Contact Form */}
+      {/* Contact Form Section */}
       <section id="contact" className="container mx-auto px-4 pb-32">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-16">
