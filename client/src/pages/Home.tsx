@@ -196,12 +196,28 @@ export default function Home() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <Card 
-                className={`h-full hover:shadow-lg transition-shadow cursor-pointer ${selectedTile === solution.title.toLowerCase() ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
+                className={`h-full hover:shadow-lg transition-all cursor-pointer ${
+                  selectedTile === solution.title.toLowerCase() 
+                    ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]' 
+                    : 'hover:bg-[hsl(var(--brand-navy)_/_5%)]'
+                }`}
                 onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}
               >
                 <CardContent className="p-6">
-                  <solution.icon className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4" />
-                  <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">{solution.title}</h3>
+                  <solution.icon 
+                    className={`h-12 w-12 mb-4 transition-colors ${
+                      selectedTile === solution.title.toLowerCase()
+                        ? 'text-[hsl(var(--brand-gold))]'
+                        : 'text-[hsl(var(--brand-navy))]'
+                    }`}
+                  />
+                  <h3 className={`text-xl font-semibold mb-2 transition-colors ${
+                    selectedTile === solution.title.toLowerCase()
+                      ? 'text-[hsl(var(--brand-gold))]'
+                      : 'text-[hsl(var(--brand-navy))]'
+                  }`}>
+                    {solution.title}
+                  </h3>
                   <p className="text-[hsl(var(--brand-navy)_/_80%)]">{solution.description}</p>
                 </CardContent>
               </Card>
@@ -229,7 +245,7 @@ export default function Home() {
                   <Card key={index} className="bg-white/80">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-navy))] mt-2" />
+                        <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-gold))] mt-2" />
                         <p className="text-[hsl(var(--brand-navy)_/_80%)]">{feature}</p>
                       </div>
                     </CardContent>
