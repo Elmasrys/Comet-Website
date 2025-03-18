@@ -95,7 +95,7 @@ export default function Home() {
               </h1>
 
               <p className="text-xl text-[hsl(var(--brand-navy)_/_70%)] mb-12 max-w-xl">
-                Comet Innovations gives you the tools to engage your community.
+                Designed to build stronger, more connected communities, our apps provide a central hub for seamless communication, real-time updates, and effortless communities management—all in a user-friendly experience.
               </p>
 
               <div className="flex flex-wrap gap-4">
