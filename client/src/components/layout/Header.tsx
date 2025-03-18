@@ -46,7 +46,7 @@ export function Header() {
             <Button variant="ghost" size="sm" className="text-[hsl(var(--brand-navy))]">Contact</Button>
           </Link>
           <Link href="/#demo">
-            <Button size="sm" className="bg-[hsl(var(--brand-magenta))] hover:bg-[hsl(var(--brand-magenta)_/_90%)] text-white">
+            <Button size="sm" className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white">
               Get Started
             </Button>
           </Link>

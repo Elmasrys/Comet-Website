@@ -70,7 +70,7 @@ export default function Home() {
             </p>
             <div className="flex items-center justify-center gap-4">
               <Link href="#demo">
-                <Button size="lg" className="text-lg px-8 bg-[hsl(var(--brand-magenta))] hover:bg-[hsl(var(--brand-magenta)_/_90%)] text-white">
+                <Button size="lg" className="text-lg px-8 bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white">
                   Get Started
                   <ArrowRight className="ml-2" />
                 </Button>
@@ -88,7 +88,7 @@ export default function Home() {
       {/* Company Overview */}
       <section id="about" className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -106,7 +106,7 @@ export default function Home() {
       {/* Solutions */}
       <section className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -194,7 +194,7 @@ export default function Home() {
       {/* Benefits */}
       <section className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -253,7 +253,7 @@ export default function Home() {
       <section id="contact" className="container mx-auto px-4 pb-32">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
