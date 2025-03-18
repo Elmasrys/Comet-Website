@@ -10,43 +10,43 @@ export function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/">
-            <a className="text-2xl font-bold text-gradient-accent">
+            <div className="text-2xl font-bold text-gradient-accent cursor-pointer">
               Comet
-            </a>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
             <Link href="/features">
-              <a className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors",
+              <div className={cn(
+                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
                 location === "/features" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
                 Features
-              </a>
+              </div>
             </Link>
             <Link href="/communities">
-              <a className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors",
+              <div className={cn(
+                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
                 location === "/communities" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
                 Communities
-              </a>
+              </div>
             </Link>
             <Link href="/about">
-              <a className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors",
+              <div className={cn(
+                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
                 location === "/about" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
                 About
-              </a>
+              </div>
             </Link>
             <Link href="/contact">
-              <a className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors",
+              <div className={cn(
+                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
                 location === "/contact" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
                 Contact
-              </a>
+              </div>
             </Link>
           </nav>
         </div>

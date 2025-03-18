@@ -1,28 +1,22 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, CreditCard, Calendar, BarChart, BellRing } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
-import { Building2, Users, Building, ArrowRight, CheckCircle, Zap, Scale, UserCircle, CreditCard, Calendar, BarChart, BellRing } from "lucide-react";
 
 export default function Home() {
   const [rotatingText, setRotatingText] = useState(0);
   const rotatingWords = ["Community", "Sports", "Coworking"];
+  const [selectedTile, setSelectedTile] = useState<'residential' | 'sports' | 'commercial' | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,6 +52,39 @@ export default function Home() {
       });
     }
   }
+
+  const features = {
+    residential: {
+      title: "Community Mobile App",
+      description: "Our Community Mobile App fosters a stronger, more connected living environment by providing a centralized platform where members can stay informed, engage with neighbors, and participate in community activities.",
+      features: [
+        "Real-time announcements to keep residents updated",
+        "Event management tools to organize and promote community gatherings",
+        "Seamless communication channels for effortless interaction",
+        "Resource access to simplify daily living"
+      ]
+    },
+    sports: {
+      title: "Sports Club Management System",
+      description: "Our Sports Club Management System is designed to revolutionize the way clubs operate, offering a comprehensive digital solution to enhance member experiences and streamline operations.",
+      features: [
+        "Membership Management & Renewal",
+        "Profile Management with complete member data",
+        "Academies & Training program management",
+        "Progress tracking for athlete development"
+      ]
+    },
+    commercial: {
+      title: "Smart Community & Coworking Management System",
+      description: "Designed to enhance the functionality and efficiency of coworking spaces and smart community buildings, our Commercial solution integrates powerful management tools with a seamless membership system.",
+      features: [
+        "Space & Resource Booking system",
+        "Automated Billing & Invoicing",
+        "Access Control & Security management",
+        "Community Engagement Tools"
+      ]
+    }
+  };
 
   return (
     <div className="space-y-32">
@@ -120,37 +147,72 @@ export default function Home() {
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[hsl(var(--brand-navy)_/_5%)] rounded-full blur-3xl" />
 
-              <Card className="bg-white/80 backdrop-blur-sm">
+              <Card 
+                className={`bg-white/80 backdrop-blur-sm cursor-pointer transition-all ${selectedTile === 'residential' ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
+                onClick={() => setSelectedTile('residential')}
+              >
                 <CardContent className="p-6">
-                  <CreditCard className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">CRM</h3>
+                  <Building2 className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
+                  <h3 className="mt-4 font-semibold">Residential</h3>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/80 backdrop-blur-sm">
+              <Card 
+                className={`bg-white/80 backdrop-blur-sm cursor-pointer transition-all ${selectedTile === 'sports' ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
+                onClick={() => setSelectedTile('sports')}
+              >
                 <CardContent className="p-6">
                   <Users className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">Members</h3>
+                  <h3 className="mt-4 font-semibold">Sports</h3>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/80 backdrop-blur-sm">
+              <Card 
+                className={`bg-white/80 backdrop-blur-sm cursor-pointer transition-all ${selectedTile === 'commercial' ? 'ring-2 ring-[hsl(var(--brand-navy))]' : ''}`}
+                onClick={() => setSelectedTile('commercial')}
+              >
                 <CardContent className="p-6">
-                  <Calendar className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">Events</h3>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/80 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <BarChart className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
-                  <h3 className="mt-4 font-semibold">Analytics</h3>
+                  <Building className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
+                  <h3 className="mt-4 font-semibold">Commercial</h3>
                 </CardContent>
               </Card>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Selected Features Section */}
+      <AnimatePresence mode="wait">
+        {selectedTile && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 text-[hsl(var(--brand-navy))]">
+                {features[selectedTile].title}
+              </h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] mb-8">
+                {features[selectedTile].description}
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {features[selectedTile].features.map((feature, index) => (
+                  <Card key={index} className="bg-white/80">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-navy))] mt-2" />
+                        <p className="text-[hsl(var(--brand-navy)_/_80%)]">{feature}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </motion.section>
+        )}
+      </AnimatePresence>
 
       {/* Solutions */}
       <section className="container mx-auto px-4">
@@ -194,17 +256,12 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow">
+              <Card className="h-full hover:shadow-lg transition-shadow" onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}>
                 <CardContent className="p-6">
                   <solution.icon className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4" />
                   <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">{solution.title}</h3>
                   <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">{solution.description}</p>
-                  <Link href={`/${solution.title.toLowerCase()}`}>
-                    <Button variant="ghost" className="w-full hover:bg-[hsl(var(--brand-navy))] hover:text-white">
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
+                  {/* Removed Learn More button as details are shown in the new section */}
                 </CardContent>
               </Card>
             </motion.div>
@@ -401,17 +458,17 @@ export default function Home() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              icon: CheckCircle,
+              icon: Shield,
               title: "Seamless Integration",
               description: "Our ecosystem connects every solution for a unified experience."
             },
             {
-              icon: Scale,
+              icon: Gauge,
               title: "Scalability",
               description: "Solutions designed to grow with your business, from small communities to large enterprises."
             },
             {
-              icon: Zap,
+              icon: Sparkles,
               title: "Innovation-Driven",
               description: "We stay ahead of the curve, delivering technology that pushes real estate forward."
             },
