@@ -270,6 +270,92 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Event Management Section */}
+      <section className="container mx-auto px-4 pb-24">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
+          >
+            Event Management
+          </motion.h2>
+          <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+            Create, promote and manage your events end-to-end with just a few clicks. In-person or online, the choice is yours.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <div className="flex flex-wrap gap-4">
+              {[
+                { label: "Branded Event Invitations", icon: Calendar },
+                { label: "Automated Notifications", icon: BellRing },
+                { label: "Social Media Integration", icon: Users },
+                { label: "List Segmentation", icon: BarChart },
+                { label: "Drag & Drop Email Editor", icon: CreditCard }
+              ].map((item, index) => (
+                <div
+                  key={item.label}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(var(--brand-navy)_/_5%)] text-sm font-medium text-[hsl(var(--brand-navy))]"
+                >
+                  <item.icon className="h-4 w-4" />
+                  {item.label}
+                </div>
+              ))}
+            </div>
+
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)]">
+              Create, promote and manage your events end-to-end with just a few clicks. In-person or online, the choice is yours.
+            </p>
+
+            <Button
+              size="lg"
+              className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
+            >
+              Learn about Events Management
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative rounded-xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)] p-8"
+          >
+            <div className="grid grid-cols-2 gap-8">
+              <Card className="bg-white">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">Total Recipients</h3>
+                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">12.1k</div>
+                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">RECIPIENTS</p>
+                  <div className="text-sm mt-2">Event invitations sent</div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">Event Attendance</h3>
+                  <div className="text-4xl font-bold text-[hsl(var(--brand-navy))]">7.5k</div>
+                  <p className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">ATTENDEES</p>
+                  <div className="text-sm mt-2">Confirmed attendees</div>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="container mx-auto px-4">
         <div className="text-center mb-16">
