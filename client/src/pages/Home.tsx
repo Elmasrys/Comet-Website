@@ -51,93 +51,78 @@ export default function Home() {
   return (
     <div className="space-y-32">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[hsl(var(--brand-navy)_/_2%)]">
-          <div className="absolute inset-0"
-            style={{
-              backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--brand-navy) / 0.1) 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }}
-          />
-        </div>
+      <section className="relative min-h-[90vh] flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--brand-navy)_/_2%)] to-transparent pointer-events-none" />
 
         {/* Content */}
-        <div className="container mx-auto px-4 relative">
+        <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="max-w-[1000px] mx-auto"
           >
-            {/* Accent Line */}
             <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "80px" }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-1 bg-[hsl(var(--brand-gold))] mx-auto mb-8"
-            />
-
-            {/* Main Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-8"
             >
-              <h1 className="text-6xl md:text-7xl font-bold mb-6">
-                <span className="text-gradient-accent">Redefining</span>{" "}
-                <span className="text-[hsl(var(--brand-navy))]">Real Estate</span>{" "}
-                <span className="text-[hsl(var(--brand-navy))]">Operations</span>
+              {/* Pre-title */}
+              <h2 className="text-[hsl(var(--brand-gold))] font-medium tracking-wide">
+                PROPERTY TECHNOLOGY SOLUTIONS
+              </h2>
+
+              {/* Main Title */}
+              <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.1] text-[hsl(var(--brand-navy))]">
+                Building the future of{' '}
+                <span className="text-gradient-accent">real estate</span>{' '}
+                management
               </h1>
+
+              {/* Description */}
+              <p className="text-xl text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl">
+                An interconnected ecosystem where every solution seamlessly integrates, empowering businesses to scale effortlessly.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link href="#demo">
+                  <Button 
+                    size="lg" 
+                    className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white px-8 h-14"
+                  >
+                    Get Started
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="#about">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-[hsl(var(--brand-navy)_/_20%)] text-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_5%)] px-8 h-14"
+                  >
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Stats or Trust Indicators */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 border-t border-[hsl(var(--brand-navy)_/_10%)]">
+                <div>
+                  <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">Unified Platform</div>
+                  <p className="text-[hsl(var(--brand-navy)_/_60%)]">Seamlessly integrated solutions for modern property management</p>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">Smart Automation</div>
+                  <p className="text-[hsl(var(--brand-navy)_/_60%)]">Streamline operations with intelligent workflows</p>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">Scale with Ease</div>
+                  <p className="text-[hsl(var(--brand-navy)_/_60%)]">Growth-ready infrastructure for any size operation</p>
+                </div>
+              </div>
             </motion.div>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl text-[hsl(var(--brand-navy)_/_80%)] mb-12 max-w-3xl mx-auto"
-            >
-              Comet is more than just a technology company—it's a movement to redefine how real estate operates, building an interconnected ecosystem where every solution seamlessly integrates.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Link href="#demo">
-                <Button size="lg" className="text-lg px-8 bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white min-w-[200px]">
-                  Get Started
-                  <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <Link href="#about">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 border-[hsl(var(--brand-gold))] text-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_10%)] min-w-[200px]"
-                >
-                  Learn More
-                </Button>
-              </Link>
-            </motion.div>
-
-            {/* Decorative Elements */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="absolute top-1/2 -translate-y-1/2 left-0 w-48 h-48 bg-[hsl(var(--brand-gold)_/_5%)] rounded-full blur-3xl"
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.2 }}
-              className="absolute top-1/2 -translate-y-1/2 right-0 w-48 h-48 bg-[hsl(var(--brand-navy)_/_5%)] rounded-full blur-3xl"
-            />
           </motion.div>
         </div>
       </section>
