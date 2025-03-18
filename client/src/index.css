@@ -3,11 +3,39 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --brand-gold: 45 100% 60%;
+    --brand-navy: 225 70% 25%;
+    --brand-magenta: 330 80% 45%;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-brand {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-gold))] via-[hsl(var(--brand-navy))] to-[hsl(var(--brand-magenta))];
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-gold))] to-[hsl(var(--brand-gold)_/_60%)] bg-clip-text text-transparent;
+  }
+
+  .text-gradient-navy {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-navy))] to-[hsl(var(--brand-navy)_/_60%)] bg-clip-text text-transparent;
+  }
+
+  .text-gradient-magenta {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-magenta))] to-[hsl(var(--brand-magenta)_/_60%)] bg-clip-text text-transparent;
   }
 }

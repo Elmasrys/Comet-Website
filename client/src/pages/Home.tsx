@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className="space-y-32">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-primary/5 to-transparent">
+      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-[hsl(var(--brand-navy)_/_5%)] to-transparent">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/40" />
         </div>
@@ -62,21 +62,21 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient-brand">
               Redefining Real Estate Operations
             </h1>
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            <p className="text-xl text-[hsl(var(--brand-navy)_/_80%)] mb-12 max-w-3xl mx-auto">
               Comet is more than just a technology company—it's a movement to redefine how real estate operates, building an interconnected ecosystem where every solution seamlessly integrates.
             </p>
             <div className="flex items-center justify-center gap-4">
               <Link href="#demo">
-                <Button size="lg" className="text-lg px-8">
+                <Button size="lg" className="text-lg px-8 bg-[hsl(var(--brand-magenta))] hover:bg-[hsl(var(--brand-magenta)_/_90%)] text-white">
                   Get Started
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <Link href="#about">
-                <Button size="lg" variant="outline" className="text-lg px-8">
+                <Button size="lg" variant="outline" className="text-lg px-8 text-[hsl(var(--brand-navy))] border-[hsl(var(--brand-navy)_/_20%)]">
                   Learn More
                 </Button>
               </Link>
