@@ -52,44 +52,31 @@ export default function Home() {
     <div className="space-y-32">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--brand-navy)_/_2%)] to-transparent pointer-events-none" />
-
-        {/* Content */}
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="max-w-[1000px] mx-auto"
-          >
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-2xl"
             >
-              {/* Pre-title */}
-              <h2 className="text-[hsl(var(--brand-gold))] font-medium tracking-wide">
-                PROPERTY TECHNOLOGY SOLUTIONS
-              </h2>
-
-              {/* Main Title */}
-              <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.1] text-[hsl(var(--brand-navy))]">
-                Building the future of{' '}
-                <span className="text-gradient-accent">real estate</span>{' '}
-                management
+              <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1] mb-8">
+                Engage your{' '}
+                <span className="text-gradient-accent">community,</span>{' '}
+                <br />
+                right inside your{' '}
+                <span className="text-[hsl(var(--brand-navy))]">platform</span>
               </h1>
 
-              {/* Description */}
-              <p className="text-xl text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl">
-                An interconnected ecosystem where every solution seamlessly integrates, empowering businesses to scale effortlessly.
+              <p className="text-xl text-[hsl(var(--brand-navy)_/_70%)] mb-12 max-w-xl">
+                Easily integrate our pre-built features and launch your curated property management platform. Boost engagement and retention while collecting valuable insights.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap gap-4">
                 <Link href="#demo">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white px-8 h-14"
                   >
                     Get Started
@@ -106,24 +93,50 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
+            </motion.div>
 
-              {/* Stats or Trust Indicators */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 border-t border-[hsl(var(--brand-navy)_/_10%)]">
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">Unified Platform</div>
-                  <p className="text-[hsl(var(--brand-navy)_/_60%)]">Seamlessly integrated solutions for modern property management</p>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">Smart Automation</div>
-                  <p className="text-[hsl(var(--brand-navy)_/_60%)]">Streamline operations with intelligent workflows</p>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">Scale with Ease</div>
-                  <p className="text-[hsl(var(--brand-navy)_/_60%)]">Growth-ready infrastructure for any size operation</p>
-                </div>
+            {/* Right Column - Visual Element */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--brand-navy)_/_2%)] to-[hsl(var(--brand-navy)_/_8%)]" />
+
+              {/* Interactive Elements Mockup */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="bg-white/90 backdrop-blur-sm rounded-xl p-4 mb-4 shadow-lg"
+                >
+                  <h3 className="text-[hsl(var(--brand-navy))] font-semibold mb-2">Community Updates</h3>
+                  <p className="text-[hsl(var(--brand-navy)_/_70%)] text-sm">New event announcement: Summer Community Gathering</p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg"
+                >
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="h-8 w-8 rounded-full bg-[hsl(var(--brand-navy)_/_10%)]" />
+                    <div className="flex-1">
+                      <h4 className="text-[hsl(var(--brand-navy))] font-medium">Resident Portal</h4>
+                      <p className="text-[hsl(var(--brand-navy)_/_60%)] text-sm">Online now</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-2 w-3/4 rounded bg-[hsl(var(--brand-navy)_/_10%)]" />
+                    <div className="h-2 w-1/2 rounded bg-[hsl(var(--brand-navy)_/_10%)]" />
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
