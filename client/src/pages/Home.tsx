@@ -60,13 +60,13 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              The Future of Real Estate Technology
+              Redefining Real Estate Operations
             </h1>
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-              Transform your property management with cutting-edge solutions designed for the modern real estate industry.
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+              Comet is more than just a technology company—it's a movement to redefine how real estate operates, building an interconnected ecosystem where every solution seamlessly integrates.
             </p>
             <div className="flex items-center justify-center gap-4">
               <Link href="#demo">
@@ -87,22 +87,19 @@ export default function Home() {
 
       {/* Company Overview */}
       <section id="about" className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Revolutionizing Real Estate Management
-        </h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Comet is leading the digital transformation of property management. Our ecosystem of solutions empowers real estate professionals, sports facilities, and commercial spaces with cutting-edge technology for seamless operations and enhanced user experiences.
-            </p>
-          </div>
-          <div className="aspect-video rounded-lg overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-              alt="Team collaboration"
-              className="w-full h-full object-cover"
-            />
-          </div>
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold mb-4"
+          >
+            Our Mission
+          </motion.h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            To build the most seamless, integrated real estate technology ecosystem that enhances efficiency, fosters community, and drives innovation across residential, sports, and commercial sectors.
+          </p>
         </div>
       </section>
 
@@ -134,7 +131,7 @@ export default function Home() {
                 <Building2 className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-semibold mb-2">Residential</h3>
                 <p className="text-gray-600 mb-6">
-                  Community app for modern residential property management.
+                  Our Community Mobile App fosters stronger, more connected living environments with real-time announcements, event management, and seamless communication.
                 </p>
                 <Link href="/residential">
                   <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
@@ -157,7 +154,7 @@ export default function Home() {
                 <Users className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-semibold mb-2">Sports</h3>
                 <p className="text-gray-600 mb-6">
-                  Comprehensive club management and member engagement platform.
+                  Revolutionize club operations with comprehensive membership management, training programs, and performance tracking solutions.
                 </p>
                 <Link href="/sports">
                   <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
@@ -180,7 +177,7 @@ export default function Home() {
                 <Building className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-semibold mb-2">Commercial</h3>
                 <p className="text-gray-600 mb-6">
-                  Smart solutions for coworking spaces and commercial properties.
+                  Transform your space with automated billing, access control integration, and powerful community engagement tools.
                 </p>
                 <Link href="/commercial">
                   <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
@@ -215,22 +212,22 @@ export default function Home() {
             {
               icon: CheckCircle,
               title: "Seamless Integration",
-              description: "Easily integrate with your existing systems and workflows."
+              description: "Our ecosystem connects every solution for a unified experience, integrating seamlessly with your existing systems."
             },
             {
               icon: Scale,
               title: "Scalability",
-              description: "Grow with confidence using our scalable solutions."
+              description: "Solutions designed to grow with your business, from small communities to large enterprises."
             },
             {
               icon: Zap,
               title: "Innovation-Driven",
-              description: "Stay ahead with cutting-edge technology and features."
+              description: "We stay ahead of the curve, delivering technology that pushes real estate forward."
             },
             {
               icon: UserCircle,
               title: "User-Centric Design",
-              description: "Intuitive interfaces designed for the best user experience."
+              description: "Built with simplicity and functionality in mind, ensuring an intuitive user experience."
             }
           ].map((benefit, index) => (
             <motion.div

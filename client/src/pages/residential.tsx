@@ -26,10 +26,10 @@ export default function Residential() {
             className="max-w-3xl"
           >
             <h1 className="text-5xl font-bold mb-6">
-              Transforming Tenant Communities
+              Community Mobile App
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Streamline residential property management with our comprehensive community platform.
+              Foster stronger, more connected living environments with our comprehensive community management platform.
             </p>
             <Link href="/#demo">
               <Button size="lg">Explore Residential Solutions</Button>
@@ -45,7 +45,7 @@ export default function Residential() {
           <Card>
             <CardContent className="pt-6">
               <BellRing className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Announcements</h3>
+              <h3 className="font-semibold mb-2">Real-time Announcements</h3>
               <p className="text-sm text-gray-600">
                 Keep residents informed with targeted community announcements and updates.
               </p>
@@ -55,9 +55,9 @@ export default function Residential() {
           <Card>
             <CardContent className="pt-6">
               <Calendar className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Events</h3>
+              <h3 className="font-semibold mb-2">Event Management</h3>
               <p className="text-sm text-gray-600">
-                Organize and manage community events with ease.
+                Organize and promote community gatherings and activities with ease.
               </p>
             </CardContent>
           </Card>
@@ -65,9 +65,9 @@ export default function Residential() {
           <Card>
             <CardContent className="pt-6">
               <MessageSquare className="h-8 w-8 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Communication</h3>
+              <h3 className="font-semibold mb-2">Seamless Communication</h3>
               <p className="text-sm text-gray-600">
-                Facilitate seamless communication between residents and management.
+                Enable effortless interaction between residents and property managers.
               </p>
             </CardContent>
           </Card>
@@ -77,7 +77,7 @@ export default function Residential() {
               <FileText className="h-8 w-8 text-primary mb-4" />
               <h3 className="font-semibold mb-2">Resource Access</h3>
               <p className="text-sm text-gray-600">
-                Centralized access to important documents and resources.
+                Centralized access to important documents and resources for residents.
               </p>
             </CardContent>
           </Card>
