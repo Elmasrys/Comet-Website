@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
-import { Building2, Users, Building, ArrowRight, CheckCircle, Zap, Scale, UserCircle } from "lucide-react";
+import { Building2, Users, Building, ArrowRight, CheckCircle, Zap, Scale, UserCircle, CreditCard, Calendar, BarChart } from "lucide-react";
 
 export default function Home() {
   const { toast } = useToast();
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className="space-y-32">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center">
+      <section className="relative min-h-[85vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
@@ -62,15 +62,14 @@ export default function Home() {
               className="max-w-2xl"
             >
               <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1] mb-8">
-                Engage your{' '}
-                <span className="text-gradient-accent">community,</span>{' '}
-                <br />
-                right inside your{' '}
-                <span className="text-[hsl(var(--brand-navy))]">platform</span>
+                All-in-one{' '}
+                <span className="text-[hsl(var(--brand-navy))]">Real Estate</span>{' '}
+                <span className="text-gradient-accent">Management</span>{' '}
+                Software
               </h1>
 
               <p className="text-xl text-[hsl(var(--brand-navy)_/_70%)] mb-12 max-w-xl">
-                Easily integrate our pre-built features and launch your curated property management platform. Boost engagement and retention while collecting valuable insights.
+                CRM, Membership Management, Event Management, Email Marketing—it's all here. Manage your property operations in under 25 minutes per day.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -79,82 +78,51 @@ export default function Home() {
                     size="lg"
                     className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white px-8 h-14"
                   >
-                    Get Started
+                    Get a Demo
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="#about">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-[hsl(var(--brand-navy)_/_20%)] text-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_5%)] px-8 h-14"
-                  >
-                    Learn More
                   </Button>
                 </Link>
               </div>
             </motion.div>
 
-            {/* Right Column - Visual Element */}
+            {/* Right Column - Feature Icons */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
+              className="relative grid grid-cols-2 gap-8"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--brand-navy)_/_2%)] to-[hsl(var(--brand-navy)_/_8%)]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[hsl(var(--brand-navy)_/_5%)] rounded-full blur-3xl" />
 
-              {/* Interactive Elements Mockup */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="bg-white/90 backdrop-blur-sm rounded-xl p-4 mb-4 shadow-lg"
-                >
-                  <h3 className="text-[hsl(var(--brand-navy))] font-semibold mb-2">Community Updates</h3>
-                  <p className="text-[hsl(var(--brand-navy)_/_70%)] text-sm">New event announcement: Summer Community Gathering</p>
-                </motion.div>
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <CreditCard className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
+                  <h3 className="mt-4 font-semibold">CRM</h3>
+                </CardContent>
+              </Card>
 
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg"
-                >
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="h-8 w-8 rounded-full bg-[hsl(var(--brand-navy)_/_10%)]" />
-                    <div className="flex-1">
-                      <h4 className="text-[hsl(var(--brand-navy))] font-medium">Resident Portal</h4>
-                      <p className="text-[hsl(var(--brand-navy)_/_60%)] text-sm">Online now</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-2 w-3/4 rounded bg-[hsl(var(--brand-navy)_/_10%)]" />
-                    <div className="h-2 w-1/2 rounded bg-[hsl(var(--brand-navy)_/_10%)]" />
-                  </div>
-                </motion.div>
-              </div>
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <Users className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
+                  <h3 className="mt-4 font-semibold">Members</h3>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <Calendar className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
+                  <h3 className="mt-4 font-semibold">Events</h3>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <BarChart className="h-8 w-8 text-[hsl(var(--brand-navy))]" />
+                  <h3 className="mt-4 font-semibold">Analytics</h3>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Company Overview */}
-      <section id="about" className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
-          >
-            Our Mission
-          </motion.h2>
-          <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] max-w-3xl mx-auto">
-            To build the most seamless, integrated real estate technology ecosystem that enhances efficiency, fosters community, and drives innovation across residential, sports, and commercial sectors.
-          </p>
         </div>
       </section>
 
@@ -171,82 +139,54 @@ export default function Home() {
             Solutions for Every Need
           </motion.h2>
           <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] max-w-2xl mx-auto">
-            Explore our comprehensive suite of property management solutions.
+            Explore our comprehensive suite of property management solutions
           </p>
         </div>
+
         <div className="grid md:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <Building2 className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">Residential</h3>
-                <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">
-                  Our Community Mobile App fosters stronger, more connected living environments with real-time announcements, event management, and seamless communication.
-                </p>
-                <Link href="/residential">
-                  <Button variant="ghost" className="w-full group-hover:bg-[hsl(var(--brand-navy))] group-hover:text-white transition-colors">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <Users className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">Sports</h3>
-                <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">
-                  Revolutionize club operations with comprehensive membership management, training programs, and performance tracking solutions.
-                </p>
-                <Link href="/sports">
-                  <Button variant="ghost" className="w-full group-hover:bg-[hsl(var(--brand-navy))] group-hover:text-white transition-colors">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <Building className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">Commercial</h3>
-                <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">
-                  Transform your space with automated billing, access control integration, and powerful community engagement tools.
-                </p>
-                <Link href="/commercial">
-                  <Button variant="ghost" className="w-full group-hover:bg-[hsl(var(--brand-navy))] group-hover:text-white transition-colors">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </motion.div>
+          {[
+            {
+              icon: Building2,
+              title: "Residential",
+              description: "Our Community Mobile App fosters stronger, more connected living environments with real-time announcements, event management, and seamless communication."
+            },
+            {
+              icon: Users,
+              title: "Sports",
+              description: "Revolutionize club operations with comprehensive membership management, training programs, and performance tracking solutions."
+            },
+            {
+              icon: Building,
+              title: "Commercial",
+              description: "Transform your space with automated billing, access control integration, and powerful community engagement tools."
+            }
+          ].map((solution, index) => (
+            <motion.div
+              key={solution.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              <Card className="h-full hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <solution.icon className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4" />
+                  <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">{solution.title}</h3>
+                  <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">{solution.description}</p>
+                  <Link href={`/${solution.title.toLowerCase()}`}>
+                    <Button variant="ghost" className="w-full hover:bg-[hsl(var(--brand-navy))] hover:text-white">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Features */}
       <section className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -262,12 +202,13 @@ export default function Home() {
             Experience the advantages of our cutting-edge platform
           </p>
         </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
               icon: CheckCircle,
               title: "Seamless Integration",
-              description: "Our ecosystem connects every solution for a unified experience, integrating seamlessly with your existing systems."
+              description: "Our ecosystem connects every solution for a unified experience."
             },
             {
               icon: Scale,
@@ -284,19 +225,19 @@ export default function Home() {
               title: "User-Centric Design",
               description: "Built with simplicity and functionality in mind, ensuring an intuitive user experience."
             }
-          ].map((benefit, index) => (
+          ].map((feature, index) => (
             <motion.div
-              key={benefit.title}
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="h-full group hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <benefit.icon className="h-8 w-8 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold mb-2 text-[hsl(var(--brand-navy))]">{benefit.title}</h3>
-                  <p className="text-sm text-[hsl(var(--brand-navy)_/_80%)]">{benefit.description}</p>
+                <CardContent className="p-6">
+                  <feature.icon className="h-8 w-8 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-semibold mb-2 text-[hsl(var(--brand-navy))]">{feature.title}</h3>
+                  <p className="text-sm text-[hsl(var(--brand-navy)_/_80%)]">{feature.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
