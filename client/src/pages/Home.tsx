@@ -73,10 +73,11 @@ export default function Home() {
               className="max-w-2xl"
             >
               <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1] mb-8">
-                Switch to the Future:{' '}
+                Switch to the Future:
                 <br />
-                The All-in-one{' '}
-                <span className="relative inline-block">
+                The All-in-one
+                <br />
+                <div className="h-[1.1em] relative">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={rotatingWords[rotatingText]}
@@ -84,13 +85,12 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5 }}
-                      className="text-gradient-accent absolute"
+                      className="text-gradient-accent absolute left-0"
                     >
                       {rotatingWords[rotatingText]}
                     </motion.span>
                   </AnimatePresence>
-                </span>
-                <br />
+                </div>
                 <span className="text-[hsl(var(--brand-navy))]">App</span>
               </h1>
 
