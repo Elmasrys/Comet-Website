@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -20,6 +21,16 @@ import { apiRequest } from "@/lib/queryClient";
 import { Building2, Users, Building, ArrowRight, CheckCircle, Zap, Scale, UserCircle, CreditCard, Calendar, BarChart, BellRing } from "lucide-react";
 
 export default function Home() {
+  const [rotatingText, setRotatingText] = useState(0);
+  const rotatingWords = ["Community", "Sports", "Coworking"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotatingText((prev) => (prev + 1) % rotatingWords.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const { toast } = useToast();
   const form = useForm<InsertContactSubmission>({
     resolver: zodResolver(contactSchema),
@@ -62,14 +73,29 @@ export default function Home() {
               className="max-w-2xl"
             >
               <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1] mb-8">
-                All-in-one{' '}
-                <span className="text-[hsl(var(--brand-navy))]">Real Estate</span>{' '}
-                <span className="text-gradient-accent">Management</span>{' '}
-                Software
+                Switch to the Future:{' '}
+                <br />
+                The All-in-one{' '}
+                <span className="relative inline-block">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={rotatingWords[rotatingText]}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-gradient-accent absolute"
+                    >
+                      {rotatingWords[rotatingText]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+                <br />
+                <span className="text-[hsl(var(--brand-navy))]">App</span>
               </h1>
 
               <p className="text-xl text-[hsl(var(--brand-navy)_/_70%)] mb-12 max-w-xl">
-                CRM, Membership Management, Event Management, Email Marketing—it's all here. Manage your property operations in under 25 minutes per day.
+                Comet Innovations gives you the tools to engage your community.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -269,7 +295,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
 
       {/* Event Management Section */}
       <section className="container mx-auto px-4 pb-24">
