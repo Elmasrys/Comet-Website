@@ -76,7 +76,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="#about">
-                <Button size="lg" variant="outline" className="text-lg px-8 text-[hsl(var(--brand-navy))] border-[hsl(var(--brand-navy)_/_20%)]">
+                <Button size="lg" variant="outline" className="text-lg px-8 border-[hsl(var(--brand-gold))] text-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_10%)]">
                   Learn More
                 </Button>
               </Link>
@@ -93,11 +93,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4"
+            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
           >
             Our Mission
           </motion.h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] max-w-3xl mx-auto">
             To build the most seamless, integrated real estate technology ecosystem that enhances efficiency, fosters community, and drives innovation across residential, sports, and commercial sectors.
           </p>
         </div>
@@ -111,11 +111,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4"
+            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
           >
             Solutions for Every Need
           </motion.h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] max-w-2xl mx-auto">
             Explore our comprehensive suite of property management solutions.
           </p>
         </div>
@@ -128,13 +128,13 @@ export default function Home() {
           >
             <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
-                <Building2 className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2">Residential</h3>
-                <p className="text-gray-600 mb-6">
+                <Building2 className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">Residential</h3>
+                <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">
                   Our Community Mobile App fosters stronger, more connected living environments with real-time announcements, event management, and seamless communication.
                 </p>
                 <Link href="/residential">
-                  <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Button variant="ghost" className="w-full group-hover:bg-[hsl(var(--brand-navy))] group-hover:text-white transition-colors">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -151,13 +151,13 @@ export default function Home() {
           >
             <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
-                <Users className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2">Sports</h3>
-                <p className="text-gray-600 mb-6">
+                <Users className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">Sports</h3>
+                <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">
                   Revolutionize club operations with comprehensive membership management, training programs, and performance tracking solutions.
                 </p>
                 <Link href="/sports">
-                  <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Button variant="ghost" className="w-full group-hover:bg-[hsl(var(--brand-navy))] group-hover:text-white transition-colors">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -174,13 +174,13 @@ export default function Home() {
           >
             <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
-                <Building className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-semibold mb-2">Commercial</h3>
-                <p className="text-gray-600 mb-6">
+                <Building className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">Commercial</h3>
+                <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-6">
                   Transform your space with automated billing, access control integration, and powerful community engagement tools.
                 </p>
                 <Link href="/commercial">
-                  <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Button variant="ghost" className="w-full group-hover:bg-[hsl(var(--brand-navy))] group-hover:text-white transition-colors">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -199,11 +199,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold mb-4"
+            className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
           >
             Why Choose Comet?
           </motion.h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] max-w-2xl mx-auto">
             Experience the advantages of our cutting-edge platform
           </p>
         </div>
@@ -239,9 +239,9 @@ export default function Home() {
             >
               <Card className="h-full group hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
-                  <benefit.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-gray-600">{benefit.description}</p>
+                  <benefit.icon className="h-8 w-8 text-[hsl(var(--brand-navy))] mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-semibold mb-2 text-[hsl(var(--brand-navy))]">{benefit.title}</h3>
+                  <p className="text-sm text-[hsl(var(--brand-navy)_/_80%)]">{benefit.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -258,11 +258,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-4xl font-bold mb-4"
+              className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
             >
               Get in Touch
             </motion.h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)]">
               Ready to transform your property management? Let's talk.
             </p>
           </div>
@@ -326,7 +326,7 @@ export default function Home() {
                     )}
                   />
 
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full bg-[hsl(var(--brand-navy))] text-white hover:bg-[hsl(var(--brand-navy)_/_90%)]">
                     Send Message
                   </Button>
                 </form>

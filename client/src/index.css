@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --brand-gold: 45 100% 60%;
     --brand-navy: 225 70% 25%;
+    --brand-gold: 45 100% 60%;
   }
 
   * {
@@ -19,18 +19,18 @@
 
 @layer utilities {
   .bg-gradient-brand {
-    @apply bg-gradient-to-r from-[hsl(var(--brand-gold))] to-[hsl(var(--brand-navy))];
+    @apply bg-gradient-to-r from-[hsl(var(--brand-navy))] to-[hsl(var(--brand-navy)_/_80%)];
+  }
+
+  .bg-gradient-accent {
+    @apply bg-gradient-to-r from-[hsl(var(--brand-gold))] to-[hsl(var(--brand-gold)_/_80%)];
   }
 
   .text-gradient-brand {
     @apply bg-gradient-brand bg-clip-text text-transparent;
   }
 
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-[hsl(var(--brand-gold))] to-[hsl(var(--brand-gold)_/_60%)] bg-clip-text text-transparent;
-  }
-
-  .text-gradient-navy {
-    @apply bg-gradient-to-r from-[hsl(var(--brand-navy))] to-[hsl(var(--brand-navy)_/_60%)] bg-clip-text text-transparent;
+  .text-gradient-accent {
+    @apply bg-gradient-accent bg-clip-text text-transparent;
   }
 }
