@@ -100,9 +100,11 @@ export default function Home() {
               className="max-w-2xl"
             >
               <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1] mb-8">
-                Switch to the Future:
-                <br />
-                The All-in-one
+                <span className="text-[hsl(var(--brand-navy))]">
+                  Switch to the Future:
+                  <br />
+                  The All-in-one
+                </span>
                 <br />
                 <div className="h-[1.1em] relative">
                   <AnimatePresence mode="wait">
@@ -195,16 +197,16 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card 
+              <Card
                 className={`h-full hover:shadow-lg transition-all cursor-pointer ${
-                  selectedTile === solution.title.toLowerCase() 
-                    ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]' 
+                  selectedTile === solution.title.toLowerCase()
+                    ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]'
                     : 'hover:bg-[hsl(var(--brand-navy)_/_5%)]'
                 }`}
                 onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}
               >
                 <CardContent className="p-6">
-                  <solution.icon 
+                  <solution.icon
                     className={`h-12 w-12 mb-4 transition-colors ${
                       selectedTile === solution.title.toLowerCase()
                         ? 'text-[hsl(var(--brand-gold))]'
