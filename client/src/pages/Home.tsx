@@ -167,8 +167,8 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-32">
-      {/* Hero Section */}
+    <div className="space-y-16">
+      {/* Hero Section - Keep full height for impact */}
       <section className="relative min-h-[85vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -232,9 +232,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Solutions Section */}
-      <section id="solutions" className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
+      {/* Solutions Section - Reduced padding */}
+      <section id="solutions" className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,15 +306,15 @@ export default function Home() {
 
       </section>
 
-      {/* Benefits Section */}
-      <section className="container mx-auto px-4 py-24">
+      {/* Benefits Section - Adjusted padding */}
+      <section className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
               Why Choose Comet
@@ -379,293 +379,298 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product Features Sections */}
-      {/* Residential Features */}
-      <section id="residential" className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
-              Residential Solutions
-            </h2>
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-              Empower your residential community with our comprehensive management platform
-            </p>
-          </motion.div>
+      {/* Product Features Sections - Consistent padding and backgrounds */}
+      <section id="residential" className="py-12 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+                Residential Solutions
+              </h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+                Empower your residential community with our comprehensive management platform
+              </p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: BellRing,
-                title: "Real-time Announcements",
-                description: "Keep residents informed with instant community updates and notifications"
-              },
-              {
-                icon: Calendar,
-                title: "Event Management",
-                description: "Organize and promote community gatherings with built-in RSVP tracking"
-              },
-              {
-                icon: Users,
-                title: "Community Directory",
-                description: "Foster connections with a secure resident directory and messaging"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full">
-                  <CardContent className="p-6">
-                    <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
-                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
-                      {feature.title}
-                    </h3>
-                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Sports Features */}
-      <section id="sports" className="container mx-auto px-4 py-24">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
-              Sports Club Management
-            </h2>
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-              Streamline your sports club operations with powerful management tools
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: UserCircle,
-                title: "Member Profiles",
-                description: "Track progress, attendance, and achievements for each member"
-              },
-              {
-                icon: Shield,
-                title: "Training Programs",
-                description: "Manage multiple training programs with detailed progress tracking"
-              },
-              {
-                icon: CreditCard,
-                title: "Payment Processing",
-                description: "Handle membership fees and program payments securely"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full">
-                  <CardContent className="p-6">
-                    <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
-                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
-                      {feature.title}
-                    </h3>
-                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Commercial Features */}
-      <section id="commercial" className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
-              Commercial Space Management
-            </h2>
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-              Transform your commercial space with smart management solutions
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Building,
-                title: "Space Booking",
-                description: "Efficient workspace and resource reservation system"
-              },
-              {
-                icon: Gauge,
-                title: "Access Control",
-                description: "Secure entry management and visitor tracking"
-              },
-              {
-                icon: Sparkles,
-                title: "Community Tools",
-                description: "Foster collaboration with integrated community features"
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full">
-                  <CardContent className="p-6">
-                    <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
-                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
-                      {feature.title}
-                    </h3>
-                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Integrations Section */}
-      <section className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
-              Technology Integrations
-            </h2>
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-              Seamlessly connected with leading technology and payment solutions
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-            {[
-              {
-                icon: SiSalesforce,
-                name: "Salesforce",
-                category: "CRM",
-                color: "#00A1E0"
-              },
-              {
-                Component: () => (
-                  <div className="text-2xl font-semibold text-[#002050]">MS Dynamics</div>
-                ),
-                name: "Microsoft Dynamics",
-                category: "Business Solutions"
-              },
-              {
-                Component: () => (
-                  <div className="text-2xl font-semibold text-[#4B53BC]">MS 365</div>
-                ),
-                name: "Microsoft 365",
-                category: "Productivity"
-              },
-              {
-                icon: SiAmazon,
-                name: "AWS",
-                category: "Cloud Infrastructure",
-                color: "#FF9900"
-              },
-              {
-                Component: () => (
-                  <div className="text-2xl font-semibold bg-gradient-to-r from-[#00B5E2] to-[#002E6D] bg-clip-text text-transparent">PayTabs</div>
-                ),
-                name: "PayTabs",
-                category: "Payment Gateway"
-              },
-              {
-                Component: () => (
-                  <div className="text-2xl font-semibold text-[#1D4289]">Valu</div>
-                ),
-                name: "Valu",
-                category: "Financial Services"
-              },
-              {
-                icon: SiApplepay,
-                name: "Apple Pay",
-                category: "Digital Payments",
-                color: "#000000"
-              },
-              {
-                icon: SiGooglepay,
-                name: "Google Pay",
-                category: "Digital Payments",
-                color: "#4285F4"
-              },
-              {
-                Component: () => (
-                  <div className="text-2xl font-semibold text-[#2B5A3B]">Maisonette</div>
-                ),
-                name: "Maisonette",
-                category: "Property Management"
-              }
-            ].map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full border-none shadow-none hover:bg-white/50 transition-colors">
-                  <CardContent className="p-8 flex flex-col items-center justify-center text-center space-y-4">
-                    {tech.icon ? (
-                      <tech.icon className={`h-16 w-16`} style={{ color: tech.color }} />
-                    ) : tech.Component ? (
-                      <tech.Component />
-                    ) : null}
-                    <div>
-                      <h3 className="text-lg font-semibold text-[hsl(var(--brand-navy))]">
-                        {tech.name}
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: BellRing,
+                  title: "Real-time Announcements",
+                  description: "Keep residents informed with instant community updates and notifications"
+                },
+                {
+                  icon: Calendar,
+                  title: "Event Management",
+                  description: "Organize and promote community gatherings with built-in RSVP tracking"
+                },
+                {
+                  icon: Users,
+                  title: "Community Directory",
+                  description: "Foster connections with a secure resident directory and messaging"
+                }
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-6">
+                      <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                      <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                        {feature.title}
                       </h3>
-                      <p className="text-sm text-[hsl(var(--brand-navy)_/_50%)] mt-1">
-                        {tech.category}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                      <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section id="contact" className="container mx-auto px-4 pb-32">
+      <section id="sports" className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+                Sports Club Management
+              </h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+                Streamline your sports club operations with powerful management tools
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: UserCircle,
+                  title: "Member Profiles",
+                  description: "Track progress, attendance, and achievements for each member"
+                },
+                {
+                  icon: Shield,
+                  title: "Training Programs",
+                  description: "Manage multiple training programs with detailed progress tracking"
+                },
+                {
+                  icon: CreditCard,
+                  title: "Payment Processing",
+                  description: "Handle membership fees and program payments securely"
+                }
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-6">
+                      <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                      <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                        {feature.title}
+                      </h3>
+                      <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="commercial" className="py-12 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+                Commercial Space Management
+              </h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+                Transform your commercial space with smart management solutions
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Building,
+                  title: "Space Booking",
+                  description: "Efficient workspace and resource reservation system"
+                },
+                {
+                  icon: Gauge,
+                  title: "Access Control",
+                  description: "Secure entry management and visitor tracking"
+                },
+                {
+                  icon: Sparkles,
+                  title: "Community Tools",
+                  description: "Foster collaboration with integrated community features"
+                }
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-6">
+                      <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                      <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                        {feature.title}
+                      </h3>
+                      <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Integrations Section - Consistent padding */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+                Technology Integrations
+              </h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+                Seamlessly connected with leading technology and payment solutions
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+              {[
+                {
+                  icon: SiSalesforce,
+                  name: "Salesforce",
+                  category: "CRM",
+                  color: "#00A1E0"
+                },
+                {
+                  Component: () => (
+                    <div className="text-2xl font-semibold text-[#002050]">MS Dynamics</div>
+                  ),
+                  name: "Microsoft Dynamics",
+                  category: "Business Solutions"
+                },
+                {
+                  Component: () => (
+                    <div className="text-2xl font-semibold text-[#4B53BC]">MS 365</div>
+                  ),
+                  name: "Microsoft 365",
+                  category: "Productivity"
+                },
+                {
+                  icon: SiAmazon,
+                  name: "AWS",
+                  category: "Cloud Infrastructure",
+                  color: "#FF9900"
+                },
+                {
+                  Component: () => (
+                    <div className="text-2xl font-semibold bg-gradient-to-r from-[#00B5E2] to-[#002E6D] bg-clip-text text-transparent">PayTabs</div>
+                  ),
+                  name: "PayTabs",
+                  category: "Payment Gateway"
+                },
+                {
+                  Component: () => (
+                    <div className="text-2xl font-semibold text-[#1D4289]">Valu</div>
+                  ),
+                  name: "Valu",
+                  category: "Financial Services"
+                },
+                {
+                  icon: SiApplepay,
+                  name: "Apple Pay",
+                  category: "Digital Payments",
+                  color: "#000000"
+                },
+                {
+                  icon: SiGooglepay,
+                  name: "Google Pay",
+                  category: "Digital Payments",
+                  color: "#4285F4"
+                },
+                {
+                  Component: () => (
+                    <div className="text-2xl font-semibold text-[#2B5A3B]">Maisonette</div>
+                  ),
+                  name: "Maisonette",
+                  category: "Property Management"
+                }
+              ].map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Card className="h-full border-none shadow-none hover:bg-white/50 transition-colors">
+                    <CardContent className="p-8 flex flex-col items-center justify-center text-center space-y-4">
+                      {tech.icon ? (
+                        <tech.icon className={`h-16 w-16`} style={{ color: tech.color }} />
+                      ) : tech.Component ? (
+                        <tech.Component />
+                      ) : null}
+                      <div>
+                        <h3 className="text-lg font-semibold text-[hsl(var(--brand-navy))]">
+                          {tech.name}
+                        </h3>
+                        <p className="text-sm text-[hsl(var(--brand-navy)_/_50%)] mt-1">
+                          {tech.category}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section - Adjusted bottom padding */}
+      <section id="contact" className="container mx-auto px-4 pb-16">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-16">
             <motion.h2
@@ -782,7 +787,7 @@ export default function Home() {
                             </FormControl>
                             <SelectContent>
                               {countries.map((country) => (
-                                <SelectItem                                  key={country} value={country}>
+                                <SelectItem key={country} value={country}>
                                   {country}
                                 </SelectItem>
                               ))}

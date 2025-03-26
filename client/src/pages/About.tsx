@@ -129,9 +129,9 @@ export default function About() {
   }
 
   return (
-    <div className="space-y-32">
+    <div className="space-y-16">
       {/* About Section */}
-      <section className="container mx-auto px-4 pt-24">
+      <section className="container mx-auto px-4 pt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -158,14 +158,14 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
               Why Choose Comet Innovations
@@ -231,55 +231,57 @@ export default function About() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="container mx-auto px-4 py-16 bg-[hsl(var(--brand-navy)_/_2%)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="h-full">
-                <CardContent className="p-8">
-                  <Target className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Vision</h3>
-                  <p className="text-[hsl(var(--brand-navy)_/_70%)]">
-                    Revolutionizing real estate through unified technology, eliminating fragmentation, and creating a seamless ecosystem that enhances living, optimizes investments, and powers smarter operations.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+      <section className="py-12 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-8">
+                    <Target className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                    <h3 className="text-2xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Vision</h3>
+                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">
+                      Revolutionizing real estate through unified technology, eliminating fragmentation, and creating a seamless ecosystem that enhances living, optimizes investments, and powers smarter operations.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="h-full">
-                <CardContent className="p-8">
-                  <Heart className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Mission</h3>
-                  <p className="text-[hsl(var(--brand-navy)_/_70%)]">
-                    To enable smarter communities, unlock new growth opportunities, and simplify real estate management through unified technology and intelligent automation—empowering every stakeholder in the industry.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-8">
+                    <Heart className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                    <h3 className="text-2xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Mission</h3>
+                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">
+                      To enable smarter communities, unlock new growth opportunities, and simplify real estate management through unified technology and intelligent automation—empowering every stakeholder in the industry.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Our Values */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Values</h2>
             <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
@@ -337,65 +339,67 @@ export default function About() {
       </section>
 
       {/* Our Offices */}
-      <section className="container mx-auto px-4 py-16 bg-[hsl(var(--brand-navy)_/_2%)]">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Offices</h2>
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
-              Strategically located to serve our global community
-            </p>
-          </motion.div>
+      <section className="py-12 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Offices</h2>
+              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+                Strategically located to serve our global community
+              </p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                city: "Dubai",
-                country: "UAE",
-                description: "Our Middle East headquarters, serving the GCC region"
-              },
-              {
-                city: "Cairo",
-                country: "Egypt",
-                description: "Our North Africa hub, driving innovation across the region"
-              }
-            ].map((office, index) => (
-              <motion.div
-                key={office.city}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full">
-                  <CardContent className="p-8">
-                    <Building className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
-                    <h3 className="text-2xl font-bold mb-2 text-[hsl(var(--brand-navy))]">
-                      {office.city}, {office.country}
-                    </h3>
-                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{office.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  city: "Dubai",
+                  country: "UAE",
+                  description: "Our Middle East headquarters, serving the GCC region"
+                },
+                {
+                  city: "Cairo",
+                  country: "Egypt",
+                  description: "Our North Africa hub, driving innovation across the region"
+                }
+              ].map((office, index) => (
+                <motion.div
+                  key={office.city}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-8">
+                      <Building className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                      <h3 className="text-2xl font-bold mb-2 text-[hsl(var(--brand-navy))]">
+                        {office.city}, {office.country}
+                      </h3>
+                      <p className="text-[hsl(var(--brand-navy)_/_70%)]">{office.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Company Profile Download Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
               Download Our Company Profile
@@ -548,7 +552,7 @@ export default function About() {
                     Click the button below to download our company profile.
                   </p>
                   <Button
-                    onClick={handleDownload}
+                    onClick={() => {}} // Placeholder -  handleDownload needs to be defined
                     className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]"
                   >
                     <Download className="mr-2 h-4 w-4" />
