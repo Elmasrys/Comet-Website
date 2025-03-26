@@ -165,28 +165,24 @@ export default function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Innovation",
-                description: "Constantly pushing boundaries to create better solutions"
-              },
-              {
-                title: "Integrity",
-                description: "Operating with transparency and ethical principles"
-              },
-              {
-                title: "Excellence",
-                description: "Delivering the highest quality in everything we do"
-              },
-              {
                 title: "Collaboration",
-                description: "Working together to achieve exceptional results"
+                description: "We enjoy collaborating with clients to meet their needs, create value, and mutual success"
               },
               {
-                title: "Customer Success",
-                description: "Dedicated to helping our clients thrive"
+                title: "Communication",
+                description: "We are dedicated to developing seamless and transparent communication processes that connect the developers to the communities and vice versa"
               },
               {
-                title: "Community Impact",
-                description: "Making a positive difference in every community we serve"
+                title: "Communities",
+                description: "We develop tech-solutions that are community-centric first and foremost and that empower communities to flourish"
+              },
+              {
+                title: "Competence",
+                description: "We employ forward-thinking strategies and technologies to revolutionize the mixed-use landscape"
+              },
+              {
+                title: "Commitment",
+                description: "We are determined to maintain the utmost standards of excellence and client care in delivering our services"
               }
             ].map((value, index) => (
               <motion.div
@@ -198,8 +194,9 @@ export default function About() {
               >
                 <Card className="h-full">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
-                      {value.title}
+                    <h3 className="text-xl font-semibold mb-2">
+                      <span className="text-[hsl(var(--brand-navy))]">Co</span>
+                      <span className="text-[hsl(var(--brand-gold))]">{value.title.substring(2)}</span>
                     </h3>
                     <p className="text-[hsl(var(--brand-navy)_/_70%)]">{value.description}</p>
                   </CardContent>
