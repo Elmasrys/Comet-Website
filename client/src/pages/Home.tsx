@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
+import { SiSalesforce, SiAmazon, SiApplepay, SiGooglepay } from "react-icons/si";
 
 export default function Home() {
   const [rotatingText, setRotatingText] = useState(0);
@@ -133,7 +134,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <Link href="#solutions"> {/* Updated link */}
+                <Link href="#solutions">
                   <Button
                     size="lg"
                     className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white px-8 h-14"
@@ -401,6 +402,110 @@ export default function Home() {
                       {feature.title}
                     </h3>
                     <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Integrations Section */}
+      <section className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+              Technology Integrations
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+              Seamlessly connected with leading technology and payment solutions
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: SiSalesforce,
+                name: "Salesforce",
+                category: "CRM"
+              },
+              {
+                Component: () => (
+                  <div className="text-2xl font-semibold">MS Dynamics</div>
+                ),
+                name: "Microsoft Dynamics",
+                category: "Business Solutions"
+              },
+              {
+                Component: () => (
+                  <div className="text-2xl font-semibold">MS 365</div>
+                ),
+                name: "Microsoft 365",
+                category: "Productivity"
+              },
+              {
+                icon: SiAmazon,
+                name: "AWS",
+                category: "Cloud Infrastructure"
+              },
+              {
+                Component: () => (
+                  <div className="text-2xl font-semibold">PayTabs</div>
+                ),
+                name: "PayTabs",
+                category: "Payment Gateway"
+              },
+              {
+                Component: () => (
+                  <div className="text-2xl font-semibold">Valu</div>
+                ),
+                name: "Valu",
+                category: "Financial Services"
+              },
+              {
+                icon: SiApplepay,
+                name: "Apple Pay",
+                category: "Digital Payments"
+              },
+              {
+                icon: SiGooglepay,
+                name: "Google Pay",
+                category: "Digital Payments"
+              },
+              {
+                Component: () => (
+                  <div className="text-2xl font-semibold">Maisonette</div>
+                ),
+                name: "Maisonette",
+                category: "Property Management"
+              }
+            ].map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-6 flex flex-col items-center justify-center text-center">
+                    {tech.icon ? (
+                      <tech.icon className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4" />
+                    ) : tech.Component ? (
+                      <tech.Component />
+                    ) : null}
+                    <h3 className="text-lg font-semibold mb-1 text-[hsl(var(--brand-navy))]">
+                      {tech.name}
+                    </h3>
+                    <p className="text-sm text-[hsl(var(--brand-navy)_/_70%)]">
+                      {tech.category}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
