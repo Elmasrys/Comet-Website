@@ -120,7 +120,7 @@ export default function About() {
                   <Target className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
                   <h3 className="text-2xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Vision</h3>
                   <p className="text-[hsl(var(--brand-navy)_/_70%)]">
-                    To be the global leader in community management technology, creating more connected and efficient communities worldwide.
+                    Revolutionizing real estate through unified technology, eliminating fragmentation, and creating a seamless ecosystem that enhances living, optimizes investments, and powers smarter operations.
                   </p>
                 </CardContent>
               </Card>
