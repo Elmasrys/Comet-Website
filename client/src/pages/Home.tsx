@@ -15,11 +15,29 @@ import { apiRequest } from "@/lib/queryClient";
 import { SiSalesforce, SiAmazon, SiApplepay, SiGooglepay } from "react-icons/si";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+const countryToCodes: { [key: string]: string } = {
+  "United States": "+1",
+  "United Kingdom": "+44",
+  "United Arab Emirates": "+971",
+  "Egypt": "+20",
+  "Saudi Arabia": "+966",
+  "India": "+91",
+  // Add more countries as needed
+};
+
+const countries = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+  "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina",
+  "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic",
+  // ... rest of the countries array
+];
+
 export default function Home() {
   const [rotatingText, setRotatingText] = useState(0);
   const rotatingWords = ["Community", "Sports", "Coworking"];
   const [selectedTile, setSelectedTile] = useState<'residential' | 'sports' | 'commercial' | null>(null);
   const [welcomeMessage, setWelcomeMessage] = useState("");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,7 +60,10 @@ export default function Home() {
     defaultValues: {
       name: "",
       email: "",
+      company: "",
       businessType: "",
+      country: "",
+      phone: "",
       message: "",
     },
   });
@@ -60,14 +81,35 @@ export default function Home() {
     setWelcomeMessage(messages[businessType as keyof typeof messages] || "");
   }, [form.watch("businessType")]);
 
+  const handleCountryChange = (country: string) => {
+    form.setValue("country", country);
+    const dialCode = countryToCodes[country] || "";
+    setSelectedCountryCode(dialCode);
+    // Clear the phone field when country changes
+    form.setValue("phone", "");
+  };
+
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Remove any non-digit characters from the input
+    const numericValue = event.target.value.replace(/\D/g, '');
+    form.setValue("phone", numericValue);
+  };
+
   async function onSubmit(data: InsertContactSubmission) {
     try {
-      await apiRequest("POST", "/api/contact", data);
+      // Format the phone number with the country code
+      const formattedData = {
+        ...data,
+        phone: selectedCountryCode + data.phone
+      };
+
+      await apiRequest("POST", "/api/contact", formattedData);
       toast({
         title: "Success",
         description: "Thank you for your message. We'll be in touch soon!",
       });
       form.reset();
+      setSelectedCountryCode("");
     } catch (error) {
       toast({
         variant: "destructive",
@@ -565,57 +607,133 @@ export default function Home() {
             <CardContent className="pt-6">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="your@email.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="businessType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Industry</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Full Name</FormLabel>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select your industry" />
-                            </SelectTrigger>
+                            <Input placeholder="Your name" {...field} />
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="residential">Residential Property Management</SelectItem>
-                            <SelectItem value="sports">Sports & Recreation</SelectItem>
-                            <SelectItem value="commercial">Commercial & Coworking</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Work Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="your@company.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="company"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Company Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your company" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="businessType"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Industry</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select your industry" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="residential">Residential Property Management</SelectItem>
+                              <SelectItem value="sports">Sports & Recreation</SelectItem>
+                              <SelectItem value="commercial">Commercial & Coworking</SelectItem>
+                              <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="country"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Country</FormLabel>
+                          <Select
+                            onValueChange={handleCountryChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select your country" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {countries.map((country) => (
+                                <SelectItem key={country} value={country}>
+                                  {country}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number</FormLabel>
+                          <FormControl>
+                            <div className="relative">
+                              {selectedCountryCode && (
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[hsl(var(--brand-navy)_/_70%)]">
+                                  {selectedCountryCode}
+                                </span>
+                              )}
+                              <Input
+                                placeholder="Phone number"
+                                {...field}
+                                onChange={handlePhoneChange}
+                                className={selectedCountryCode ? "pl-16" : ""}
+                                type="tel"
+                                pattern="[0-9]*"
+                              />
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
                   <FormField
                     control={form.control}
