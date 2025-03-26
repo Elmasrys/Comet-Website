@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useState } from "react";
 
 const partnerApplicationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
@@ -24,6 +25,17 @@ const partnerApplicationSchema = z.object({
 });
 
 type PartnerApplication = z.infer<typeof partnerApplicationSchema>;
+
+// Country codes mapping
+const countryToCodes: { [key: string]: string } = {
+  "United States": "+1",
+  "United Kingdom": "+44",
+  "United Arab Emirates": "+971",
+  "Egypt": "+20",
+  "Saudi Arabia": "+966",
+  "India": "+91",
+  // Add more countries as needed
+};
 
 const countries = [
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
@@ -48,6 +60,8 @@ const countries = [
 
 export default function Partners() {
   const { toast } = useToast();
+  const [selectedCountryCode, setSelectedCountryCode] = useState("");
+
   const form = useForm<PartnerApplication>({
     resolver: zodResolver(partnerApplicationSchema),
     defaultValues: {
@@ -64,6 +78,14 @@ export default function Partners() {
     },
   });
 
+  const handleCountryChange = (country: string) => {
+    form.setValue("country", country);
+    const dialCode = countryToCodes[country] || "";
+    setSelectedCountryCode(dialCode);
+    // Clear the phone field when country changes
+    form.setValue("phone", "");
+  };
+
   async function onSubmit(data: PartnerApplication) {
     try {
       // We'll implement the Google Sheets submission here
@@ -73,6 +95,7 @@ export default function Partners() {
         description: "Thank you for your interest. We'll review your application and get back to you soon.",
       });
       form.reset();
+      setSelectedCountryCode("");
     } catch (error) {
       toast({
         variant: "destructive",
@@ -154,7 +177,18 @@ export default function Partners() {
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="+1 (555) 000-0000" {...field} />
+                          <div className="relative">
+                            {selectedCountryCode && (
+                              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[hsl(var(--brand-navy)_/_70%)]">
+                                {selectedCountryCode}
+                              </span>
+                            )}
+                            <Input 
+                              placeholder="Phone number" 
+                              {...field}
+                              className={selectedCountryCode ? "pl-16" : ""}
+                            />
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -183,7 +217,12 @@ export default function Partners() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Country</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select 
+                          onValueChange={(value) => {
+                            handleCountryChange(value);
+                          }} 
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select your country" />
