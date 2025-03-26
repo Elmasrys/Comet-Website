@@ -7,9 +7,9 @@ import { Footer } from "./components/layout/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Partners from "./pages/Partners";
-import Residential from "./pages/residential";
-import Sports from "./pages/sports";
-import Commercial from "./pages/commercial";
+import Residential from "./pages/Residential";
+import Sports from "./pages/Sports";
+import Commercial from "./pages/Commercial";
 import NotFound from "./pages/not-found";
 
 function Router() {
