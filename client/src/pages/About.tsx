@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building, Globe, Heart, Target, Lightbulb, Users } from "lucide-react";
+import { Building, Globe, Heart, Target, Lightbulb, Users, Sparkles } from "lucide-react";
 
 export default function About() {
   return (
@@ -50,22 +50,37 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Globe,
-                title: "Global Reach",
+                title: "Global Mindset",
                 description: "Serving communities across multiple regions with localized solutions"
               },
               {
+                icon: Sparkles,
+                title: "Integrated Digital Solutions",
+                description: "Comet Innovations provides a streamlined, tech-driven approach to real estate"
+              },
+              {
                 icon: Users,
-                title: "Customer-Centric",
-                description: "Dedicated to understanding and meeting our clients' unique needs"
+                title: "Enhanced Community Living",
+                description: "Facilitating smarter, more connected, and convenient environments"
               },
               {
                 icon: Lightbulb,
-                title: "Innovation Focus",
-                description: "Continuously evolving our technology to stay ahead of industry needs"
+                title: "Expert Advisory Support",
+                description: "Access to a team of professionals who align solutions with business goals"
+              },
+              {
+                icon: Target,
+                title: "Market Differentiation",
+                description: "Real estate companies using Comet's solutions can stand out from competitors"
+              },
+              {
+                icon: Heart,
+                title: "Customer-Centric Approach",
+                description: "Solutions designed to enhance daily life, not just property ownership"
               }
             ].map((feature, index) => (
               <motion.div
@@ -73,7 +88,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Card className="h-full">
                   <CardContent className="p-6">
