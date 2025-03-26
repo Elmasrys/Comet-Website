@@ -16,20 +16,12 @@ export function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/features">
+            <Link href="/#solutions">
               <div className={cn(
                 "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/features" && "text-[hsl(var(--brand-navy))] font-medium"
+                location === "/#solutions" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
-                Features
-              </div>
-            </Link>
-            <Link href="/communities">
-              <div className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/communities" && "text-[hsl(var(--brand-navy))] font-medium"
-              )}>
-                Communities
+                Solutions
               </div>
             </Link>
             <Link href="/about">
@@ -40,10 +32,10 @@ export function Header() {
                 About
               </div>
             </Link>
-            <Link href="/contact">
+            <Link href="/#contact">
               <div className={cn(
                 "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/contact" && "text-[hsl(var(--brand-navy))] font-medium"
+                location === "/#contact" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
                 Contact
               </div>
