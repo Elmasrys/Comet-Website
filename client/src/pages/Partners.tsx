@@ -15,7 +15,9 @@ const partnerApplicationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   contactName: z.string().min(1, "Contact name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(1, "Phone number is required"),
+  phone: z.string()
+    .min(1, "Phone number is required")
+    .regex(/^\d+$/, "Phone number must contain only digits"),
   website: z.string().url("Invalid website URL"),
   country: z.string().min(1, "Country is required"),
   partnerType: z.string().min(1, "Partner type is required"),
@@ -86,10 +88,21 @@ export default function Partners() {
     form.setValue("phone", "");
   };
 
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Remove any non-digit characters from the input
+    const numericValue = event.target.value.replace(/\D/g, '');
+    form.setValue("phone", numericValue);
+  };
+
   async function onSubmit(data: PartnerApplication) {
     try {
-      // We'll implement the Google Sheets submission here
-      console.log(data);
+      // Format the phone number with the country code
+      const formattedData = {
+        ...data,
+        phone: selectedCountryCode + data.phone
+      };
+
+      console.log(formattedData);
       toast({
         title: "Application Submitted",
         description: "Thank you for your interest. We'll review your application and get back to you soon.",
@@ -186,7 +199,10 @@ export default function Partners() {
                             <Input 
                               placeholder="Phone number" 
                               {...field}
+                              onChange={handlePhoneChange}
                               className={selectedCountryCode ? "pl-16" : ""}
+                              type="tel"
+                              pattern="[0-9]*"
                             />
                           </div>
                         </FormControl>
