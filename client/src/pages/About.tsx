@@ -17,7 +17,17 @@ export default function About() {
             About Comet Innovations
           </h1>
           <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] mb-12">
-            We're revolutionizing community management through innovative technology solutions that connect and empower communities across residential, sports, and commercial sectors.
+            Comet is more than a tech company—it's a movement to reimagine
+            how real estate operates. We're building an ecosystem where every
+            solution works seamlessly together, enabling businesses to scale
+            effortlessly and focus on what matters most: their customers and
+            communities. As we continue to grow, our commitment remains the
+            same: to empower real estate professionals with technology that
+            doesn't just keep up with the market but pushes it forward. Whether
+            it's creating happier tenant communities, helping investors make
+            data-driven decisions, or enabling coworking operators to thrive,
+            Comet is shaping the future of real estate technology—one solution
+            at a time.
           </p>
         </motion.div>
       </section>
