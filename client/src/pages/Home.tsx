@@ -428,7 +428,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: SiSalesforce,
@@ -493,21 +493,19 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full border-none shadow-none hover:bg-white/50 transition-colors">
-                  <CardContent className="p-8 flex flex-col items-center justify-center text-center space-y-4">
+                <Card className="h-full">
+                  <CardContent className="p-6 flex flex-col items-center justify-center text-center">
                     {tech.icon ? (
-                      <tech.icon className="h-16 w-16 text-[hsl(var(--brand-navy))]" />
+                      <tech.icon className="h-12 w-12 text-[hsl(var(--brand-navy))] mb-4" />
                     ) : tech.Component ? (
                       <tech.Component />
                     ) : null}
-                    <div>
-                      <h3 className="text-lg font-semibold text-[hsl(var(--brand-navy))]">
-                        {tech.name}
-                      </h3>
-                      <p className="text-sm text-[hsl(var(--brand-navy)_/_50%)] mt-1">
-                        {tech.category}
-                      </p>
-                    </div>
+                    <h3 className="text-lg font-semibold mb-1 text-[hsl(var(--brand-navy))]">
+                      {tech.name}
+                    </h3>
+                    <p className="text-sm text-[hsl(var(--brand-navy)_/_70%)]">
+                      {tech.category}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
