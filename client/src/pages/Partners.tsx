@@ -14,7 +14,14 @@ import { useState } from "react";
 const partnerApplicationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   contactName: z.string().min(1, "Contact name is required"),
-  email: z.string().email("Invalid email address"),
+  email: z.string()
+    .min(1, "Email is required")
+    .email("Please enter a valid email address")
+    .refine((email) => {
+      // Basic email format validation
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      return emailRegex.test(email);
+    }, "Please enter a valid email address"),
   phone: z.string()
     .min(1, "Phone number is required")
     .regex(/^\d+$/, "Phone number must contain only digits"),
@@ -196,8 +203,8 @@ export default function Partners() {
                                 {selectedCountryCode}
                               </span>
                             )}
-                            <Input 
-                              placeholder="Phone number" 
+                            <Input
+                              placeholder="Phone number"
                               {...field}
                               onChange={handlePhoneChange}
                               className={selectedCountryCode ? "pl-16" : ""}
@@ -233,10 +240,10 @@ export default function Partners() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Country</FormLabel>
-                        <Select 
+                        <Select
                           onValueChange={(value) => {
                             handleCountryChange(value);
-                          }} 
+                          }}
                           defaultValue={field.value}
                         >
                           <FormControl>
@@ -316,7 +323,7 @@ export default function Partners() {
                     <FormItem>
                       <FormLabel>Company Description</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           placeholder="Tell us about your company and its core business"
                           className="min-h-[100px]"
                           {...field}
@@ -334,7 +341,7 @@ export default function Partners() {
                     <FormItem>
                       <FormLabel>Relevant Experience</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           placeholder="Describe your experience in real estate technology or related fields"
                           className="min-h-[100px]"
                           {...field}
@@ -345,8 +352,8 @@ export default function Partners() {
                   )}
                 />
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
                 >
                   Submit Application
