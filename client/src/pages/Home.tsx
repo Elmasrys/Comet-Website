@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, BellRing, CreditCard, Calendar } from "lucide-react";
+import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, BellRing, CreditCard, Calendar, Paintbrush, Heart, Blocks, Brain, CircuitBoard } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -304,6 +304,79 @@ export default function Home() {
           ))}
         </div>
 
+      </section>
+
+      {/* Benefits Section */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+              Why Choose Comet
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+              Experience the next generation of property management solutions
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "White Labeled",
+                description: "Fully customizable branding options to match your company's identity and style.",
+                icon: Paintbrush,
+              },
+              {
+                title: "Intuitive Customer Experience",
+                description: "User-friendly interface designed for seamless navigation and engagement.",
+                icon: Heart,
+              },
+              {
+                title: "Completely Modular",
+                description: "Flexible and customizable modules to match your specific business needs.",
+                icon: Blocks,
+              },
+              {
+                title: "AI Integration",
+                description: "First platform to integrate conversational AI for enhanced user interaction.",
+                icon: Brain,
+              },
+              {
+                title: "Built for Mixed Use",
+                description: "Comprehensive solution designed for diverse property development needs.",
+                icon: Building2,
+              },
+              {
+                title: "End-to-End Solution",
+                description: "Complete management system covering all aspects of property operations.",
+                icon: CircuitBoard,
+              },
+            ].map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-6">
+                    <benefit.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Product Features Sections */}
@@ -709,7 +782,7 @@ export default function Home() {
                             </FormControl>
                             <SelectContent>
                               {countries.map((country) => (
-                                <SelectItem key={country} value={country}>
+                                <SelectItem                                  key={country} value={country}>
                                   {country}
                                 </SelectItem>
                               ))}

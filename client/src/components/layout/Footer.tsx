@@ -2,62 +2,74 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-50 border-t">
+    <footer className="bg-[hsl(var(--brand-navy)_/_5%)] border-t">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4">Comet</h3>
-            <p className="text-sm text-gray-600">
-              Transforming real estate technology with innovative solutions.
+            <h3 className="text-lg font-semibold mb-4 text-[hsl(var(--brand-navy))]">Comet</h3>
+            <p className="text-sm text-[hsl(var(--brand-navy)_/_70%)]">
+              Transforming property management with innovative solutions.
             </p>
           </div>
-          
+
           <div>
-            <h4 className="text-sm font-semibold mb-4">Solutions</h4>
+            <h4 className="text-sm font-semibold mb-4 text-[hsl(var(--brand-navy))]">Solutions</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/residential">
-                  <a className="text-sm text-gray-600 hover:text-primary">Residential</a>
+                <Link href="/#residential">
+                  <div className="text-sm text-[hsl(var(--brand-navy)_/_70%)] hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                    Residential
+                  </div>
                 </Link>
               </li>
               <li>
-                <Link href="/sports">
-                  <a className="text-sm text-gray-600 hover:text-primary">Sports</a>
+                <Link href="/#sports">
+                  <div className="text-sm text-[hsl(var(--brand-navy)_/_70%)] hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                    Sports
+                  </div>
                 </Link>
               </li>
               <li>
-                <Link href="/commercial">
-                  <a className="text-sm text-gray-600 hover:text-primary">Commercial</a>
+                <Link href="/#commercial">
+                  <div className="text-sm text-[hsl(var(--brand-navy)_/_70%)] hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                    Commercial
+                  </div>
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold mb-4">Company</h4>
+            <h4 className="text-sm font-semibold mb-4 text-[hsl(var(--brand-navy))]">Company</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/#about">
-                  <a className="text-sm text-gray-600 hover:text-primary">About</a>
+                <Link href="/about">
+                  <div className="text-sm text-[hsl(var(--brand-navy)_/_70%)] hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                    About Us
+                  </div>
                 </Link>
               </li>
               <li>
-                <Link href="/#contact">
-                  <a className="text-sm text-gray-600 hover:text-primary">Contact</a>
+                <Link href="/partners">
+                  <div className="text-sm text-[hsl(var(--brand-navy)_/_70%)] hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                    Partners
+                  </div>
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold mb-4">Get Started</h4>
-            <Link href="/#demo">
-              <a className="text-sm text-primary hover:underline">Request a Demo</a>
+            <h4 className="text-sm font-semibold mb-4 text-[hsl(var(--brand-navy))]">Get Started</h4>
+            <Link href="/#solutions">
+              <div className="text-sm text-[hsl(var(--brand-gold))] hover:text-[hsl(var(--brand-gold)_/_80%)] cursor-pointer">
+                Request a Demo
+              </div>
             </Link>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t text-center text-sm text-gray-600">
+        <div className="mt-12 pt-8 border-t text-center text-sm text-[hsl(var(--brand-navy)_/_70%)]">
           <p>&copy; {new Date().getFullYear()} Comet. All rights reserved.</p>
         </div>
       </div>

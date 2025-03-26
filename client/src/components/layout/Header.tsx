@@ -47,14 +47,6 @@ export function Header() {
                 Partners
               </div>
             </Link>
-            <div
-              onClick={() => scrollToSection('contact')}
-              className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/#contact" && "text-[hsl(var(--brand-navy))] font-medium"
-              )}>
-              Contact
-            </div>
           </nav>
         </div>
 
