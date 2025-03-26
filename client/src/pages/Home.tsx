@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, BellRing, CreditCard } from "lucide-react";
+import { Building2, Users, Building, ArrowRight, Shield, Gauge, Sparkles, UserCircle, BellRing, CreditCard, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -257,6 +257,182 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+      </section>
+
+
+      {/* Product Features Sections */}
+      {/* Residential Features */}
+      <section className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+              Residential Solutions
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+              Empower your residential community with our comprehensive management platform
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: BellRing,
+                title: "Real-time Announcements",
+                description: "Keep residents informed with instant community updates and notifications"
+              },
+              {
+                icon: Calendar,
+                title: "Event Management",
+                description: "Organize and promote community gatherings with built-in RSVP tracking"
+              },
+              {
+                icon: Users,
+                title: "Community Directory",
+                description: "Foster connections with a secure resident directory and messaging"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-6">
+                    <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                      {feature.title}
+                    </h3>
+                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sports Features */}
+      <section className="container mx-auto px-4 py-24">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+              Sports Club Management
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+              Streamline your sports club operations with powerful management tools
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: UserCircle,
+                title: "Member Profiles",
+                description: "Track progress, attendance, and achievements for each member"
+              },
+              {
+                icon: Shield,
+                title: "Training Programs",
+                description: "Manage multiple training programs with detailed progress tracking"
+              },
+              {
+                icon: CreditCard,
+                title: "Payment Processing",
+                description: "Handle membership fees and program payments securely"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-6">
+                    <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                      {feature.title}
+                    </h3>
+                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Commercial Features */}
+      <section className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+              Commercial Space Management
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] max-w-2xl mx-auto">
+              Transform your commercial space with smart management solutions
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Building,
+                title: "Space Booking",
+                description: "Efficient workspace and resource reservation system"
+              },
+              {
+                icon: Gauge,
+                title: "Access Control",
+                description: "Secure entry management and visitor tracking"
+              },
+              {
+                icon: Sparkles,
+                title: "Community Tools",
+                description: "Foster collaboration with integrated community features"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="p-6">
+                    <feature.icon className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
+                    <h3 className="text-xl font-semibold mb-2 text-[hsl(var(--brand-navy))]">
+                      {feature.title}
+                    </h3>
+                    <p className="text-[hsl(var(--brand-navy)_/_70%)]">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Contact Form Section */}
