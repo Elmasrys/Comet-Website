@@ -193,7 +193,7 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Card className="h-full">
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 text-center">
                     <h3 className="text-xl font-semibold mb-2">
                       <span className="text-[hsl(var(--brand-navy))]">Co</span>
                       <span className="text-[hsl(var(--brand-gold))]">{value.title.substring(2)}</span>
