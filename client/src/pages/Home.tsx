@@ -133,7 +133,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <Link href="#demo">
+                <Link href="#solutions"> {/* Updated link */}
                   <Button
                     size="lg"
                     className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white px-8 h-14"
@@ -161,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Solutions Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section id="solutions" className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

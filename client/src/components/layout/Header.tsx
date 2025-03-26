@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 export function Header() {
   const [location] = useLocation();
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="w-full bg-white border-b">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -16,14 +23,14 @@ export function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/#solutions">
-              <div className={cn(
+            <div
+              onClick={() => scrollToSection('solutions')}
+              className={cn(
                 "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
                 location === "/#solutions" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
-                Solutions
-              </div>
-            </Link>
+              Solutions
+            </div>
             <Link href="/about">
               <div className={cn(
                 "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
@@ -32,23 +39,26 @@ export function Header() {
                 About
               </div>
             </Link>
-            <Link href="/#contact">
-              <div className={cn(
+            <div
+              onClick={() => scrollToSection('contact')}
+              className={cn(
                 "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
                 location === "/#contact" && "text-[hsl(var(--brand-navy))] font-medium"
               )}>
-                Contact
-              </div>
-            </Link>
+              Contact
+            </div>
           </nav>
         </div>
 
         <div className="flex items-center">
-          <Link href="/#demo">
+          <div
+            onClick={() => scrollToSection('demo')}
+            className="cursor-pointer"
+          >
             <Button size="sm" className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]">
               Get a Demo
             </Button>
-          </Link>
+          </div>
         </div>
       </div>
     </header>
