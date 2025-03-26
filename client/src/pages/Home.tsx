@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,6 +24,14 @@ export default function Home() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setSelectedTile(id as 'residential' | 'sports' | 'commercial');
+  };
 
   const { toast } = useToast();
   const form = useForm<InsertContactSubmission>({
@@ -107,18 +115,15 @@ export default function Home() {
                 </span>
                 <br />
                 <div className="h-[1.1em] relative">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={rotatingWords[rotatingText]}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5 }}
-                      className="text-gradient-accent absolute left-0"
-                    >
-                      {rotatingWords[rotatingText]}
-                    </motion.span>
-                  </AnimatePresence>
+                  <motion.span
+                    key={rotatingWords[rotatingText]}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-gradient-accent absolute left-0"
+                  >
+                    {rotatingWords[rotatingText]}
+                  </motion.span>
                 </div>
                 <span className="text-[hsl(var(--brand-navy))]">App</span>
               </h1>
@@ -203,7 +208,7 @@ export default function Home() {
                     ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]'
                     : 'hover:bg-[hsl(var(--brand-navy)_/_5%)]'
                 }`}
-                onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}
+                onClick={() => scrollToSection(solution.title.toLowerCase())}
               >
                 <CardContent className="p-6">
                   <solution.icon
@@ -227,42 +232,11 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Selected Features Section */}
-        <AnimatePresence mode="wait">
-          {selectedTile && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="max-w-4xl mx-auto mt-16"
-            >
-              <h2 className="text-3xl font-bold mb-6 text-[hsl(var(--brand-navy))]">
-                {features[selectedTile].title}
-              </h2>
-              <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)] mb-8">
-                {features[selectedTile].description}
-              </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {features[selectedTile].features.map((feature, index) => (
-                  <Card key={index} className="bg-white/80">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-gold))] mt-2" />
-                        <p className="text-[hsl(var(--brand-navy)_/_80%)]">{feature}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </section>
-
 
       {/* Product Features Sections */}
       {/* Residential Features */}
-      <section className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
+      <section id="residential" className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -320,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* Sports Features */}
-      <section className="container mx-auto px-4 py-24">
+      <section id="sports" className="container mx-auto px-4 py-24">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -378,7 +352,7 @@ export default function Home() {
       </section>
 
       {/* Commercial Features */}
-      <section className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
+      <section id="commercial" className="container mx-auto px-4 py-24 bg-[hsl(var(--brand-navy)_/_2%)]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
