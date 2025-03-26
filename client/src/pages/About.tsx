@@ -1,8 +1,71 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building, Globe, Heart, Target, Lightbulb, Users, Sparkles } from "lucide-react";
+import { Building, Globe, Heart, Target, Lightbulb, Users, Sparkles, Download } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const downloadFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string()
+    .min(1, "Email is required")
+    .email("Please enter a valid email address")
+    .refine((email) => {
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      return emailRegex.test(email);
+    }, "Please enter a valid email address"),
+  company: z.string().min(1, "Company name is required"),
+  jobTitle: z.string().min(1, "Job title is required"),
+});
+
+type DownloadFormData = z.infer<typeof downloadFormSchema>;
 
 export default function About() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const { toast } = useToast();
+
+  const form = useForm<DownloadFormData>({
+    resolver: zodResolver(downloadFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      jobTitle: "",
+    },
+  });
+
+  async function onSubmit(data: DownloadFormData) {
+    try {
+      // Here you would typically send this data to your backend
+      console.log(data);
+      setFormSubmitted(true);
+      toast({
+        title: "Success",
+        description: "You can now download the company profile.",
+      });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      });
+    }
+  }
+
+  const handleDownload = () => {
+    // Here you would typically trigger the actual file download
+    // For now, we'll just show a success message
+    toast({
+      title: "Download Started",
+      description: "Your download should begin shortly.",
+    });
+  };
+
   return (
     <div className="space-y-32">
       {/* About Section */}
@@ -259,6 +322,125 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Company Profile Download Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4 text-[hsl(var(--brand-navy))]">
+              Download Our Company Profile
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_70%)]">
+              Get detailed insights into our company's vision, mission, and success stories.
+            </p>
+          </motion.div>
+
+          {!formSubmitted ? (
+            <Card>
+              <CardContent className="pt-6">
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Full Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Work Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="your@company.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="company"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Company Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Your company" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="jobTitle"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Job Title</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Your role" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
+                    >
+                      Get Company Profile
+                    </Button>
+                  </form>
+                </Form>
+              </CardContent>
+            </Card>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center"
+            >
+              <Card>
+                <CardContent className="py-8">
+                  <h3 className="text-xl font-semibold mb-4 text-[hsl(var(--brand-navy))]">
+                    Thank you for your interest!
+                  </h3>
+                  <p className="text-[hsl(var(--brand-navy)_/_70%)] mb-6">
+                    Click the button below to download our company profile.
+                  </p>
+                  <Button
+                    onClick={handleDownload}
+                    className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Profile
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
         </div>
       </section>
     </div>
