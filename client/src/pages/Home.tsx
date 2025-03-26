@@ -13,11 +13,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { contactSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { SiSalesforce, SiAmazon, SiApplepay, SiGooglepay } from "react-icons/si";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Home() {
   const [rotatingText, setRotatingText] = useState(0);
   const rotatingWords = ["Community", "Sports", "Coworking"];
   const [selectedTile, setSelectedTile] = useState<'residential' | 'sports' | 'commercial' | null>(null);
+  const [welcomeMessage, setWelcomeMessage] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,6 +46,19 @@ export default function Home() {
       message: "",
     },
   });
+
+  useEffect(() => {
+    const businessType = form.watch("businessType");
+
+    const messages = {
+      residential: "Welcome to Comet! Let's transform your residential property management experience.",
+      sports: "Ready to revolutionize your sports facility management? We're here to help.",
+      commercial: "Looking to enhance your commercial space? Discover our smart management solutions.",
+      other: "Welcome to Comet! How can we help transform your property management?",
+    };
+
+    setWelcomeMessage(messages[businessType as keyof typeof messages] || "");
+  }, [form.watch("businessType")]);
 
   async function onSubmit(data: InsertContactSubmission) {
     try {
@@ -433,18 +448,19 @@ export default function Home() {
               {
                 icon: SiSalesforce,
                 name: "Salesforce",
-                category: "CRM"
+                category: "CRM",
+                color: "#00A1E0"
               },
               {
                 Component: () => (
-                  <div className="text-2xl font-semibold">MS Dynamics</div>
+                  <div className="text-2xl font-semibold text-[#002050]">MS Dynamics</div>
                 ),
                 name: "Microsoft Dynamics",
                 category: "Business Solutions"
               },
               {
                 Component: () => (
-                  <div className="text-2xl font-semibold">MS 365</div>
+                  <div className="text-2xl font-semibold text-[#4B53BC]">MS 365</div>
                 ),
                 name: "Microsoft 365",
                 category: "Productivity"
@@ -452,18 +468,19 @@ export default function Home() {
               {
                 icon: SiAmazon,
                 name: "AWS",
-                category: "Cloud Infrastructure"
+                category: "Cloud Infrastructure",
+                color: "#FF9900"
               },
               {
                 Component: () => (
-                  <div className="text-2xl font-semibold">PayTabs</div>
+                  <div className="text-2xl font-semibold bg-gradient-to-r from-[#00B5E2] to-[#002E6D] bg-clip-text text-transparent">PayTabs</div>
                 ),
                 name: "PayTabs",
                 category: "Payment Gateway"
               },
               {
                 Component: () => (
-                  <div className="text-2xl font-semibold">Valu</div>
+                  <div className="text-2xl font-semibold text-[#1D4289]">Valu</div>
                 ),
                 name: "Valu",
                 category: "Financial Services"
@@ -471,16 +488,18 @@ export default function Home() {
               {
                 icon: SiApplepay,
                 name: "Apple Pay",
-                category: "Digital Payments"
+                category: "Digital Payments",
+                color: "#000000"
               },
               {
                 icon: SiGooglepay,
                 name: "Google Pay",
-                category: "Digital Payments"
+                category: "Digital Payments",
+                color: "#4285F4"
               },
               {
                 Component: () => (
-                  <div className="text-2xl font-semibold">Maisonette</div>
+                  <div className="text-2xl font-semibold text-[#2B5A3B]">Maisonette</div>
                 ),
                 name: "Maisonette",
                 category: "Property Management"
@@ -496,7 +515,7 @@ export default function Home() {
                 <Card className="h-full border-none shadow-none hover:bg-white/50 transition-colors">
                   <CardContent className="p-8 flex flex-col items-center justify-center text-center space-y-4">
                     {tech.icon ? (
-                      <tech.icon className="h-16 w-16 text-[hsl(var(--brand-navy))]" />
+                      <tech.icon className={`h-16 w-16`} style={{ color: tech.color }} />
                     ) : tech.Component ? (
                       <tech.Component />
                     ) : null}
@@ -528,10 +547,19 @@ export default function Home() {
               className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
             >
               Get in Touch
-            </motion.h2>
-            <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)]">
+            </h2>
+            <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] mb-4">
               Ready to transform your property management? Let's talk.
             </p>
+            {welcomeMessage && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-lg font-medium text-[hsl(var(--brand-gold))]"
+              >
+                {welcomeMessage}
+              </motion.p>
+            )}
           </div>
           <Card>
             <CardContent className="pt-6">
@@ -570,10 +598,20 @@ export default function Home() {
                     name="businessType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Business Type</FormLabel>
-                        <FormControl>
-                          <Input placeholder="e.g. Residential, Commercial, Sports" {...field} />
-                        </FormControl>
+                        <FormLabel>Industry</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select your industry" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="residential">Residential Property Management</SelectItem>
+                            <SelectItem value="sports">Sports & Recreation</SelectItem>
+                            <SelectItem value="commercial">Commercial & Coworking</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
