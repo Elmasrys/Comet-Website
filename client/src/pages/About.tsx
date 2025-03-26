@@ -18,8 +18,20 @@ const downloadFormSchema = z.object({
     .email("Please enter a valid email address")
     .refine((email) => {
       const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-      return emailRegex.test(email);
-    }, "Please enter a valid email address"),
+      const personalDomains = [
+        'gmail.com',
+        'yahoo.com',
+        'hotmail.com',
+        'outlook.com',
+        'aol.com',
+        'icloud.com',
+        'mail.com',
+        'protonmail.com',
+        'zoho.com'
+      ];
+      const domain = email.toLowerCase().split('@')[1];
+      return emailRegex.test(email) && !personalDomains.includes(domain);
+    }, "Please use your business email address"),
   company: z.string().min(1, "Company name is required"),
   jobTitle: z.string().min(1, "Job title is required"),
   country: z.string().min(1, "Country is required"),
