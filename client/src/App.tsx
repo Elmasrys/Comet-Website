@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Residential from "./pages/residential";
 import Sports from "./pages/sports";
 import Commercial from "./pages/commercial";
@@ -17,6 +18,7 @@ function Router() {
       <main className="flex-1 pt-16">
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/about" component={About} />
           <Route path="/residential" component={Residential} />
           <Route path="/sports" component={Sports} />
           <Route path="/commercial" component={Commercial} />
