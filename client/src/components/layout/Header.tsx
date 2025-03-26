@@ -39,6 +39,14 @@ export function Header() {
                 About
               </div>
             </Link>
+            <Link href="/partners">
+              <div className={cn(
+                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
+                location === "/partners" && "text-[hsl(var(--brand-navy))] font-medium"
+              )}>
+                Partners
+              </div>
+            </Link>
             <div
               onClick={() => scrollToSection('contact')}
               className={cn(
