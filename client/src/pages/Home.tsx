@@ -14,34 +14,6 @@ import { contactSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { SiSalesforce, SiAmazon, SiApplepay, SiGooglepay } from "react-icons/si";
 
-const MaisonetteLogo = () => (
-  <img 
-    src="/attached_assets/Maisonette-logo.png"
-    alt="Maisonette"
-    className="h-16 w-auto object-contain"
-  />
-);
-
-const DynamicsLogo = () => (
-  <img 
-    src="/attached_assets/Dynamics-365-logo.jpg"
-    alt="Microsoft Dynamics"
-    className="h-16 w-auto object-contain"
-  />
-);
-
-const MS365Logo = () => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 2228.833 2073.333"
-    className="h-16 w-16"
-  >
-    <path fill="#FF5722" d="M1791.333 0h437.5v2073.333h-437.5z"/>
-    <path fill="#03A9F4" d="M885.833 0h437.5v2073.333h-437.5z"/>
-    <path fill="#4CAF50" d="M0 0h437.5v2073.333H0z"/>
-  </svg>
-);
-
 export default function Home() {
   const [rotatingText, setRotatingText] = useState(0);
   const rotatingWords = ["Community", "Sports", "Coworking"];
@@ -458,34 +430,30 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
             {[
-              // Enterprise Solutions
               {
                 icon: SiSalesforce,
                 name: "Salesforce",
                 category: "CRM"
               },
               {
-                Component: DynamicsLogo,
+                Component: () => (
+                  <div className="text-2xl font-semibold">MS Dynamics</div>
+                ),
                 name: "Microsoft Dynamics",
                 category: "Business Solutions"
               },
               {
-                Component: MS365Logo,
+                Component: () => (
+                  <div className="text-2xl font-semibold">MS 365</div>
+                ),
                 name: "Microsoft 365",
                 category: "Productivity"
               },
-              {
-                Component: MaisonetteLogo,
-                name: "Maisonette",
-                category: "Property Management"
-              },
-              // Infrastructure
               {
                 icon: SiAmazon,
                 name: "AWS",
                 category: "Cloud Infrastructure"
               },
-              // Payment Solutions
               {
                 Component: () => (
                   <div className="text-2xl font-semibold">PayTabs</div>
@@ -509,6 +477,13 @@ export default function Home() {
                 icon: SiGooglepay,
                 name: "Google Pay",
                 category: "Digital Payments"
+              },
+              {
+                Component: () => (
+                  <div className="text-2xl font-semibold">Maisonette</div>
+                ),
+                name: "Maisonette",
+                category: "Property Management"
               }
             ].map((tech, index) => (
               <motion.div
