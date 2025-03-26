@@ -177,17 +177,26 @@ export default function Home() {
             {
               icon: Building2,
               title: "Residential",
-              description: "Our Community Mobile App fosters stronger, more connected living environments with real-time announcements, event management, and seamless communication."
+              description: "Our Community Mobile App fosters stronger, more connected living environments with real-time announcements, event management, and seamless communication.",
+              metric: "500+",
+              metricLabel: "Communities Managed",
+              highlight: "Real-time Updates"
             },
             {
               icon: Users,
               title: "Sports",
-              description: "Revolutionize club operations with comprehensive membership management, training programs, and performance tracking solutions."
+              description: "Revolutionize club operations with comprehensive membership management, training programs, and performance tracking solutions.",
+              metric: "10k+",
+              metricLabel: "Active Members",
+              highlight: "Performance Tracking"
             },
             {
               icon: Building,
               title: "Commercial",
-              description: "Transform your space with automated billing, access control integration, and powerful community engagement tools."
+              description: "Transform your space with automated billing, access control integration, and powerful community engagement tools.",
+              metric: "95%",
+              metricLabel: "Occupancy Rate",
+              highlight: "Smart Access"
             }
           ].map((solution, index) => (
             <motion.div
@@ -198,7 +207,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <Card
-                className={`h-full hover:shadow-lg transition-all cursor-pointer ${
+                className={`h-full transition-all cursor-pointer group relative overflow-hidden ${
                   selectedTile === solution.title.toLowerCase()
                     ? 'bg-[hsl(var(--brand-gold)_/_10%)] ring-2 ring-[hsl(var(--brand-gold))]'
                     : 'hover:bg-[hsl(var(--brand-navy)_/_5%)]'
@@ -206,13 +215,22 @@ export default function Home() {
                 onClick={() => setSelectedTile(solution.title.toLowerCase() as 'residential' | 'sports' | 'commercial')}
               >
                 <CardContent className="p-6">
-                  <solution.icon
-                    className={`h-12 w-12 mb-4 transition-colors ${
-                      selectedTile === solution.title.toLowerCase()
-                        ? 'text-[hsl(var(--brand-gold))]'
-                        : 'text-[hsl(var(--brand-navy))]'
-                    }`}
-                  />
+                  {/* Top Section */}
+                  <div className="flex justify-between items-start mb-6">
+                    <solution.icon
+                      className={`h-12 w-12 transition-colors ${
+                        selectedTile === solution.title.toLowerCase()
+                          ? 'text-[hsl(var(--brand-gold))]'
+                          : 'text-[hsl(var(--brand-navy))] group-hover:text-[hsl(var(--brand-gold))]'
+                      }`}
+                    />
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-[hsl(var(--brand-navy))]">{solution.metric}</div>
+                      <div className="text-sm text-[hsl(var(--brand-navy)_/_60%)]">{solution.metricLabel}</div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
                   <h3 className={`text-xl font-semibold mb-2 transition-colors ${
                     selectedTile === solution.title.toLowerCase()
                       ? 'text-[hsl(var(--brand-gold))]'
@@ -220,7 +238,18 @@ export default function Home() {
                   }`}>
                     {solution.title}
                   </h3>
-                  <p className="text-[hsl(var(--brand-navy)_/_80%)]">{solution.description}</p>
+                  <p className="text-[hsl(var(--brand-navy)_/_80%)] mb-4">{solution.description}</p>
+
+                  {/* Highlight Badge */}
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-[hsl(var(--brand-navy)_/_5%)] text-sm font-medium text-[hsl(var(--brand-navy))]">
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    {solution.highlight}
+                  </div>
+
+                  {/* Selection Indicator */}
+                  {selectedTile === solution.title.toLowerCase() && (
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-[hsl(var(--brand-gold))]" />
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
@@ -244,7 +273,7 @@ export default function Home() {
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
                 {features[selectedTile].features.map((feature, index) => (
-                  <Card key={index} className="bg-white/80">
+                  <Card key={index} className="bg-white/80 hover:shadow-md transition-shadow">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="h-2 w-2 rounded-full bg-[hsl(var(--brand-gold))] mt-2" />
@@ -253,6 +282,18 @@ export default function Home() {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+
+              {/* Call to Action */}
+              <div className="mt-8 text-center">
+                <Button
+                  size="lg"
+                  className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white"
+                  onClick={() => window.location.href = '#demo'}
+                >
+                  Get Started with {features[selectedTile].title}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </div>
             </motion.div>
           )}
