@@ -56,12 +56,19 @@ export function Footer() {
                   </div>
                 </Link>
               </li>
+              <li>
+                <Link href="/about#company-profile">
+                  <div className="text-sm text-[hsl(var(--brand-navy)_/_70%)] hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                    Get Company Profile
+                  </div>
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold mb-4 text-[hsl(var(--brand-navy))]">Get Started</h4>
-            <Link href="/#solutions">
+            <Link href="/#contact">
               <div className="text-sm text-[hsl(var(--brand-gold))] hover:text-[hsl(var(--brand-gold)_/_80%)] cursor-pointer">
                 Request a Demo
               </div>

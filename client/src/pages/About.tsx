@@ -392,7 +392,7 @@ export default function About() {
       </section>
 
       {/* Company Profile Download Section */}
-      <section className="container mx-auto px-4 py-12">
+      <section id="company-profile" className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -552,7 +552,7 @@ export default function About() {
                     Click the button below to download our company profile.
                   </p>
                   <Button
-                    onClick={() => {}} // Placeholder -  handleDownload needs to be defined
+                    onClick={() => { }} // Placeholder -  handleDownload needs to be defined
                     className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]"
                   >
                     <Download className="mr-2 h-4 w-4" />

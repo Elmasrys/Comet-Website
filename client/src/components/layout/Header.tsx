@@ -52,7 +52,7 @@ export function Header() {
 
         <div className="flex items-center">
           <div
-            onClick={() => scrollToSection('demo')}
+            onClick={() => scrollToSection('contact')}
             className="cursor-pointer"
           >
             <Button size="sm" className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]">
