@@ -137,7 +137,7 @@ export default function About() {
                   <Heart className="h-12 w-12 text-[hsl(var(--brand-gold))] mb-4" />
                   <h3 className="text-2xl font-bold mb-4 text-[hsl(var(--brand-navy))]">Our Mission</h3>
                   <p className="text-[hsl(var(--brand-navy)_/_70%)]">
-                    To empower communities through innovative technology solutions that enhance connectivity, efficiency, and engagement.
+                    To enable smarter communities, unlock new growth opportunities, and simplify real estate management through unified technology and intelligent automation—empowering every stakeholder in the industry.
                   </p>
                 </CardContent>
               </Card>
