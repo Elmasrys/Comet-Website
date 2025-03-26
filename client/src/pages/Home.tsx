@@ -306,7 +306,7 @@ export default function Home() {
 
       </section>
 
-      {/* Benefits Section - Adjusted padding */}
+      {/* Benefits Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -352,8 +352,8 @@ export default function Home() {
                 icon: Building2,
               },
               {
-                title: "End-to-End Solution",
-                description: "Complete management system covering all aspects of property operations.",
+                title: "An Integrated Ecosystem",
+                description: "An Integrated Ecosystem covering all aspects of managing community operations.",
                 icon: CircuitBoard,
               },
             ].map((benefit, index) => (
@@ -805,19 +805,20 @@ export default function Home() {
                         <FormItem>
                           <FormLabel>Phone Number</FormLabel>
                           <FormControl>
-                            <div className="relative">
-                              {selectedCountryCode && (
-                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[hsl(var(--brand-navy)_/_70%)]">
-                                  {selectedCountryCode}
-                                </span>
-                              )}
+                            <div className="flex">
+                              <div className="w-24 flex-shrink-0">
+                                <Input
+                                  disabled
+                                  value={selectedCountryCode}
+                                  className="rounded-r-none border-r-0"
+                                />
+                              </div>
                               <Input
-                                placeholder="Phone number"
-                                {...field}
-                                onChange={handlePhoneChange}
-                                className={selectedCountryCode ? "pl-16" : ""}
                                 type="tel"
-                                pattern="[0-9]*"
+                                className="rounded-l-none"
+                                placeholder="Enter phone number"
+                                value={field.value}
+                                onChange={handlePhoneChange}
                               />
                             </div>
                           </FormControl>
@@ -825,6 +826,7 @@ export default function Home() {
                         </FormItem>
                       )}
                     />
+
                   </div>
 
                   <FormField
