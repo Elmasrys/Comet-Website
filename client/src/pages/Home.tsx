@@ -547,7 +547,7 @@ export default function Home() {
               className="text-4xl font-bold mb-4 text-[hsl(var(--brand-navy))]"
             >
               Get in Touch
-            </h2>
+            </motion.h2>
             <p className="text-lg text-[hsl(var(--brand-navy)_/_80%)] mb-4">
               Ready to transform your property management? Let's talk.
             </p>
