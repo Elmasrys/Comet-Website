@@ -183,6 +183,10 @@ export default function About() {
               {
                 title: "Commitment",
                 description: "We are determined to maintain the utmost standards of excellence and client care in delivering our services"
+              },
+              {
+                title: "Co-Creation",
+                description: "We believe in building the future of real estate together, working closely with stakeholders to develop innovative, impactful solutions"
               }
             ].map((value, index) => (
               <motion.div
