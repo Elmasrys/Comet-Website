@@ -404,7 +404,7 @@ export default function Home() {
                 <span className="text-[hsl(var(--brand-navy))]">
                   Switch to the Future:
                   <br />
-                  The All-in-one.
+                  The All-in-one..
                 </span>
                 <br />
                 <div className="h-[1.1em] relative">
