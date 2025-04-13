@@ -17,9 +17,11 @@ export function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/">
-            <div className="text-2xl font-bold text-gradient-accent cursor-pointer">
-              Comet
-            </div>
+            <img
+              src="/comet-logo.png"
+              alt="Comet Logo"
+              className="h-8 w-auto"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
