@@ -429,7 +429,10 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <Link href="#solutions">
+                <Link
+                  href="#contact"
+                  onClick={() => scrollToSection("contact")}
+                >
                   <Button
                     size="lg"
                     className="bg-[hsl(var(--brand-navy))] hover:bg-[hsl(var(--brand-navy)_/_90%)] text-white px-8 h-14"
@@ -449,7 +452,7 @@ export default function Home() {
               className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
             >
               <div className="absolute inset-0 flex items-center justify-center text-[hsl(var(--brand-navy)_/_20%)]">
-                <img src="https://thumbs.dreamstime.com/z/ai-machine-learning-hands-robot-human-touching-big-data-network-connection-background-science-artificial-intelligence-172987598.jpg?ct=jpeg">
+                <img src="https://thumbs.dreamstime.com/z/ai-machine-learning-hands-robot-human-touching-big-data-network-connection-background-science-artificial-intelligence-172987598.jpg?ct=jpeg" />
               </div>
             </motion.div>
           </div>
@@ -847,18 +850,14 @@ export default function Home() {
                 },
                 {
                   Component: () => (
-                    <div className="text-2xl font-semibold text-[#002050]">
-                      MS Dynamics
-                    </div>
+                    <img src="https://1000logos.net/wp-content/uploads/2021/12/Dynamics-365-logo-500x281.png" />
                   ),
                   name: "Microsoft Dynamics",
                   category: "Business Solutions",
                 },
                 {
                   Component: () => (
-                    <div className="text-2xl font-semibold text-[#4B53BC]">
-                      MS 365
-                    </div>
+                    <img src="https://www.pcgit.com/wp-content/uploads/2021/11/Microsoft-Office-365-Logo-700x394-1.png" />
                   ),
                   name: "Microsoft 365",
                   category: "Productivity",
@@ -871,18 +870,14 @@ export default function Home() {
                 },
                 {
                   Component: () => (
-                    <div className="text-2xl font-semibold bg-gradient-to-r from-[#00B5E2] to-[#002E6D] bg-clip-text text-transparent">
-                      PayTabs
-                    </div>
+                    <img src="https://lyveglobal.com/wp-content/uploads/2023/03/logo-paytabs.webp" />
                   ),
                   name: "PayTabs",
                   category: "Payment Gateway",
                 },
                 {
                   Component: () => (
-                    <div className="text-2xl font-semibold text-[#1D4289]">
-                      Valu
-                    </div>
+                    <img src="https://puzzlesegypt.com/cdn/shop/articles/U_Valu_logos_2_3_-1.png?v=1699370917" />
                   ),
                   name: "Valu",
                   category: "Financial Services",
@@ -901,9 +896,7 @@ export default function Home() {
                 },
                 {
                   Component: () => (
-                    <div className="text-2xl font-semibold text-[#2B5A3B]">
-                      Maisonette
-                    </div>
+                    <img src="https://jz-images.s3.eu-west-1.amazonaws.com/companies/logo/1500992113_logo_424039_.png" />
                   ),
                   name: "Maisonette",
                   category: "Property Management",
