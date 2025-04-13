@@ -8,7 +8,7 @@ export function Header() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -17,35 +17,39 @@ export function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/">
-            <img
-              src="/comet-logo.png"
-              alt="Comet Logo"
-              className="h-8 w-auto"
-            />
+            <img src="/clogo.png" alt="Comet Logo" className="h-8 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
             <div
-              onClick={() => scrollToSection('solutions')}
+              onClick={() => scrollToSection("solutions")}
               className={cn(
                 "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/#solutions" && "text-[hsl(var(--brand-navy))] font-medium"
-              )}>
+                location === "/#solutions" &&
+                  "text-[hsl(var(--brand-navy))] font-medium",
+              )}
+            >
               Solutions
             </div>
             <Link href="/about">
-              <div className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/about" && "text-[hsl(var(--brand-navy))] font-medium"
-              )}>
+              <div
+                className={cn(
+                  "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
+                  location === "/about" &&
+                    "text-[hsl(var(--brand-navy))] font-medium",
+                )}
+              >
                 About
               </div>
             </Link>
             <Link href="/partners">
-              <div className={cn(
-                "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
-                location === "/partners" && "text-[hsl(var(--brand-navy))] font-medium"
-              )}>
+              <div
+                className={cn(
+                  "text-sm hover:text-[hsl(var(--brand-navy))] transition-colors cursor-pointer",
+                  location === "/partners" &&
+                    "text-[hsl(var(--brand-navy))] font-medium",
+                )}
+              >
                 Partners
               </div>
             </Link>
@@ -54,10 +58,13 @@ export function Header() {
 
         <div className="flex items-center">
           <div
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection("contact")}
             className="cursor-pointer"
           >
-            <Button size="sm" className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]">
+            <Button
+              size="sm"
+              className="bg-[hsl(var(--brand-gold))] hover:bg-[hsl(var(--brand-gold)_/_90%)] text-[hsl(var(--brand-navy))]"
+            >
               Get a Demo
             </Button>
           </div>
