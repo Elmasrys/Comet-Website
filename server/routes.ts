@@ -3,20 +3,20 @@ import { createServer } from "http";
 import { storage } from "./storage";
 import { contactSchema, demoSchema } from "@shared/schema";
 import { ZodError } from "zod";
-import sgMail from "@sendgrid/mail";
+import { Resend } from 'resend';
 
-if (!process.env.SENDGRID_API_KEY) {
-  throw new Error("Missing SENDGRID_API_KEY environment variable");
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("Missing RESEND_API_KEY environment variable");
 }
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function registerRoutes(app: Express) {
   app.post("/api/partners", async (req, res) => {
     try {
       const data = partnerFormSchema.parse(req.body);
       
-      await sgMail.send({
+      await resend.emails.send({
         from: process.env.SENDER_EMAIL,
         to: process.env.NOTIFICATION_EMAIL,
         subject: "New Partner Application",
@@ -49,7 +49,7 @@ export async function registerRoutes(app: Express) {
     try {
       const data = contactSchema.parse(req.body);
       
-      await sgMail.send({
+      await resend.emails.send({
         from: process.env.SENDER_EMAIL,
         to: process.env.NOTIFICATION_EMAIL,
         subject: "New Contact Form Submission",
