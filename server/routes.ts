@@ -3,23 +3,21 @@ import { createServer } from "http";
 import { storage } from "./storage";
 import { contactSchema, demoSchema } from "@shared/schema";
 import { ZodError } from "zod";
-import nodemailer from "nodemailer";
+import sgMail from "@sendgrid/mail";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+if (!process.env.SENDGRID_API_KEY) {
+  throw new Error("Missing SENDGRID_API_KEY environment variable");
+}
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export async function registerRoutes(app: Express) {
   app.post("/api/contact", async (req, res) => {
     try {
       const data = contactSchema.parse(req.body);
       
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
+      await sgMail.send({
+        from: process.env.SENDER_EMAIL,
         to: process.env.NOTIFICATION_EMAIL,
         subject: "New Contact Form Submission",
         html: `
