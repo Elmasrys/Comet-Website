@@ -12,6 +12,39 @@ if (!process.env.SENDGRID_API_KEY) {
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export async function registerRoutes(app: Express) {
+  app.post("/api/partners", async (req, res) => {
+    try {
+      const data = partnerFormSchema.parse(req.body);
+      
+      await sgMail.send({
+        from: process.env.SENDER_EMAIL,
+        to: process.env.NOTIFICATION_EMAIL,
+        subject: "New Partner Application",
+        html: `
+          <h2>New Partner Application</h2>
+          <p><strong>Company:</strong> ${data.companyName}</p>
+          <p><strong>Contact Name:</strong> ${data.contactName}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone}</p>
+          <p><strong>Website:</strong> ${data.website}</p>
+          <p><strong>Country:</strong> ${data.country}</p>
+          <p><strong>Partner Type:</strong> ${data.partnerType}</p>
+          <p><strong>Company Size:</strong> ${data.companySize}</p>
+          <p><strong>Description:</strong> ${data.description}</p>
+          <p><strong>Experience:</strong> ${data.experience}</p>
+        `
+      });
+
+      res.json({ message: "Partner application submitted successfully" });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        res.status(400).json({ message: "Invalid form data", errors: error.errors });
+      } else {
+        console.error('Email error:', error);
+        res.status(500).json({ message: "Failed to submit partner application" });
+      }
+    }
+  });
   app.post("/api/contact", async (req, res) => {
     try {
       const data = contactSchema.parse(req.body);

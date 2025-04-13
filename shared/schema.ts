@@ -63,3 +63,18 @@ export type InsertContactSubmission = z.infer<typeof contactSchema>;
 
 export type DemoRequest = typeof demoRequests.$inferSelect;
 export type InsertDemoRequest = z.infer<typeof demoSchema>;
+
+export const partnerFormSchema = z.object({
+  companyName: z.string().min(1, "Company name is required"),
+  contactName: z.string().min(1, "Contact name is required"),
+  email: z.string().min(1, "Email is required").email("Invalid email"),
+  phone: z.string().min(1, "Phone is required"),
+  website: z.string().url("Invalid website URL"),
+  country: z.string().min(1, "Country is required"),
+  partnerType: z.string().min(1, "Partner type is required"),
+  companySize: z.string().min(1, "Company size is required"),
+  description: z.string().min(10, "Description is required"),
+  experience: z.string().min(10, "Experience is required")
+});
+
+export type PartnerFormData = z.infer<typeof partnerFormSchema>;

@@ -303,7 +303,18 @@ export default function Partners() {
         phone: selectedCountryCode + data.phone,
       };
 
-      console.log(formattedData);
+      const response = await fetch("/api/partners", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formattedData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
+
       toast({
         title: "Application Submitted",
         description:
