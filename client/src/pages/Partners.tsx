@@ -322,15 +322,6 @@ export default function Partners() {
       });
       form.reset();
       setSelectedCountryCode("");
-
-      // Send email using SendGrid
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: formattedData,
-      });
     } catch (error) {
       console.error(error);
       toast({
