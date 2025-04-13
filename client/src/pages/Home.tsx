@@ -404,7 +404,7 @@ export default function Home() {
                 <span className="text-[hsl(var(--brand-navy))]">
                   Switch to the Future:
                   <br />
-                  The All-in-one..
+                  The All-in-one
                 </span>
                 <br />
                 <div className="h-[1.1em] relative">
@@ -449,7 +449,7 @@ export default function Home() {
               className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
             >
               <div className="absolute inset-0 flex items-center justify-center text-[hsl(var(--brand-navy)_/_20%)]">
-                Platform Preview Image
+                <img src="https://thumbs.dreamstime.com/z/ai-machine-learning-hands-robot-human-touching-big-data-network-connection-background-science-artificial-intelligence-172987598.jpg?ct=jpeg">
               </div>
             </motion.div>
           </div>
