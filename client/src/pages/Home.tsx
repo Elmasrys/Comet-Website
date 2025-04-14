@@ -452,7 +452,7 @@ export default function Home() {
               className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
             >
               <div className="absolute inset-0 flex items-center justify-center text-[hsl(var(--brand-navy)_/_20%)]">
-                <img src="https://thumbs.dreamstime.com/z/ai-machine-learning-hands-robot-human-touching-big-data-network-connection-background-science-artificial-intelligence-172987598.jpg?ct=jpeg" />
+                <img src="/src/assets/lang.jpeg" />
               </div>
             </motion.div>
           </div>
