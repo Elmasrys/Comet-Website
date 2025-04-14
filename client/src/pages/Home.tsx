@@ -452,7 +452,7 @@ export default function Home() {
               className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden bg-[hsl(var(--brand-navy)_/_5%)]"
             >
               <div className="absolute inset-0 flex items-center justify-center text-[hsl(var(--brand-navy)_/_20%)]">
-                <img src="/src/assets/lang.jpeg" />
+                <img src="/src/assets/lang.png" />
               </div>
             </motion.div>
           </div>
