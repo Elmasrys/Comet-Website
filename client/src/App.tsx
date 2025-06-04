@@ -12,6 +12,7 @@ import Partners from "./pages/Partners";
 import Residential from "./pages/residential";
 import Sports from "./pages/sports";
 import Commercial from "./pages/commercial";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/not-found";
 
 function Router() {
@@ -68,6 +69,14 @@ function Router() {
               component={() => (
                 <PageTransition>
                   <Commercial />
+                </PageTransition>
+              )} 
+            />
+            <Route 
+              path="/privacy-policy" 
+              component={() => (
+                <PageTransition>
+                  <PrivacyPolicy />
                 </PageTransition>
               )} 
             />

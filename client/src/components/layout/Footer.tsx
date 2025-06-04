@@ -76,8 +76,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t text-center text-sm text-[hsl(var(--brand-navy)_/_70%)]">
-          <p>&copy; {new Date().getFullYear()} Comet. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t">
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-[hsl(var(--brand-navy)_/_70%)]">
+            <p>&copy; {new Date().getFullYear()} Comet. All rights reserved.</p>
+            <div className="mt-4 md:mt-0">
+              <Link href="/privacy-policy">
+                <span className="hover:text-[hsl(var(--brand-navy))] cursor-pointer">
+                  Privacy Policy
+                </span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

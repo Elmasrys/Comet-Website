@@ -1,0 +1,55 @@
+Privacy Policy
+
+Tatweer Misr Privacy Policy
+
+This Privacy Policy governs the manner in which Tatweer Misr collects, uses, maintains, and discloses information collected from users of the Tatweer Misr application. This policy applies to the application and all products and services provided by Tatweer Misr.
+
+Personal Identity Information
+
+Tatweer Misr collects personal identity information from users in various ways. This may include, but is not limited to, instances when a user visits the application, registers, completes forms, or interacts with features, services, or resources provided. Users may be asked for their name, email address, phone number, and other identifiable details.
+
+Non-Personal Identity Information
+
+Tatweer Misr may collect non-personal identification information whenever users interact with the app. This may include device type, browser details, operating system, internet service provider information, and similar technical data.
+
+How We Use Collected Information
+
+To improve customer service: Your information helps us respond more effectively to your requests and support needs.
+To enhance the application: We continually strive to improve our offerings based on the feedback and data we receive from users.
+To send periodic emails: The email address provided will be used to send updates and respond to inquiries. If users opt into our mailing list, they will receive emails containing company news, updates, and related product or service information. Unsubscribe instructions are included in each email.
+How We Protect Your Information
+
+We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, and data stored on the app. Sensitive information is transmitted over secure, encrypted channels.
+
+Sharing Personal Data
+
+Tatweer Misr does not sell, trade, or rent users’ personal identity information. We may share generic aggregated demographic information not linked to personal identity with partners and advertisers. We may also engage third-party service providers for operations like surveys or newsletters, but only within the scope of specified purposes and with user consent where applicable.
+
+Third-Party Websites
+
+Users may encounter content within the app linking to third-party websites. We are not responsible for the content or practices of such sites. These external sites have their own privacy policies and terms of use. Interacting with such sites is subject to their respective policies.
+
+Privacy Policy Changes
+
+Tatweer Misr reserves the right to update this privacy policy at any time. Users are encouraged to check this page regularly to stay informed. Continued use of the application after any changes constitutes acceptance of the revised policy.
+
+Agreement to Terms
+
+By using this application, you agree to this policy. If you do not agree, please do not use the app. Continued usage following policy updates will be regarded as your acceptance of the changes.
+
+Tap Solutions
+
+Our application includes a point collection and refund system designed strictly for internal app use. Users may accumulate points through actions defined within the app. These points may be reversed or refunded within the same environment. Points have no real-world monetary value, cannot be exchanged for goods or services, and are not redeemable outside the app.
+
+The app also includes QR code generation and scanning features to securely transfer point-related data between authorized applications published under our developer account. These QR codes are not used to promote third-party content, offer external rewards, or enable unauthorized data sharing.
+
+A full transaction history related to points is stored and displayed to provide users with a transparent activity log. This data is securely stored and is only accessible within the app for reference and auditing purposes.
+
+We do not sell or share any personal or transactional data with third parties. All point-related features are designed to comply with App Store and Play Store guidelines, as well as standard privacy and security practices.
+
+Contact Us
+
+If you have any questions about this Privacy Policy, the practices of this application, or your dealings with us, please contact:
+
+Email: info@comet-innovations.com
+Effective Date: 10/06/2024
